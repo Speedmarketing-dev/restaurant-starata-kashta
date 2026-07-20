@@ -1,0 +1,79 @@
+---
+const currentYear = new Date().getFullYear();
+
+const phoneNumbers = ["+359 89 380 5905", "+359 88 680 5905", "+359 87 880 5905"];
+const facebookUrl = "https://www.facebook.com/profile.php?id=100000464105093";
+---
+
+<footer
+  class="w-full bg-[#faf7f0] border-t border-stone-200 shadow-[0_-4px_12px_rgba(0,0,0,0.15)] mt-auto"
+>
+  <div class="max-w-6xl mx-auto px-4 md:px-8 py-10">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center sm:text-left">
+      <!-- Address -->
+      <div class="flex flex-col items-center">
+        <h3 class="text-xs font-semibold tracking-[0.2em] uppercase text-[#8c0e0e] mb-3">Адрес</h3>
+        <a
+          href="https://www.google.com/maps/place/%D0%A1%D1%82%D0%B0%D1%80%D0%B0%D1%82%D0%B0+%D0%BA%D1%8A%D1%89%D0%B0/@42.6935559,23.3568933,21z/data=!3m1!5s0x40aa858e2f04189d:0xdcf76ed0bc28ecf4!4m12!1m5!3m4!2zNDLCsDQxJzM3LjAiTiAyM8KwMjEnMjUuMiJF!8m2!3d42.6935961!4d23.3570105!3m5!1s0x40aa858e25971415:0x537fcd49471a09ed!8m2!3d42.693579!4d23.3570034!16s%2Fg%2F11btym8c0x?entry=ttu&g_ep=EgoyMDI2MDcxNS4wIKXMDSoASAFQAw%3D%3D"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-center text-sm text-stone-700 hover:text-[#8c0e0e] transition-colors duration-200 leading-relaxed inline-block"
+        >
+          кв. Редута<br />
+          София 1505, България
+        </a>
+      </div>
+
+      <!-- Phone numbers -->
+      <div class="flex flex-col items-center">
+        <h3 class="text-xs font-semibold tracking-[0.2em] uppercase text-[#8c0e0e] mb-3">
+          Телефони
+        </h3>
+        <ul class="space-y-1.5">
+          {
+            phoneNumbers.map((number) => (
+              <li>
+                <a
+                  href={`tel:${number.replace(/\s/g, "")}`}
+                  class="text-sm text-stone-700 hover:text-[#8c0e0e] transition-colors duration-200"
+                >
+                  {number}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Social -->
+      <div class="flex flex-col items-center">
+        <h3 class="text-xs font-semibold tracking-[0.2em] uppercase text-[#8c0e0e] mb-3">
+          Последвайте ни
+        </h3>
+        <a
+          href={facebookUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 text-sm text-stone-700 hover:text-[#8c0e0e] transition-colors duration-200"
+          aria-label="Facebook страница на Старата къща"
+        >
+          <svg class="h-4 w-4 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M22 12.06C22 6.505 17.523 2 12 2S2 6.505 2 12.06c0 5.02 3.657 9.184 8.438 9.94v-7.03H7.898v-2.91h2.54V9.845c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562v1.878h2.773l-.443 2.91h-2.33V22c4.78-.756 8.437-4.92 8.437-9.94z"
+            ></path>
+          </svg>
+          Facebook
+        </a>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="mt-8 pt-6 border-t border-stone-200 text-center">
+      <p class="text-xs md:text-sm text-[#5c0606] font-medium">
+        &copy; {currentYear}
+        <a href="https://staratakashta-bg.com" class="hover:underline"> www.staratakashta-bg.com </a>
+        Всички права запазени.
+      </p>
+    </div>
+  </div>
+</footer>

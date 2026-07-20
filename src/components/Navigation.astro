@@ -1,0 +1,160 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { href: "/", label: "Начало" },
+  { href: "/menu", label: "Меню" },
+  { href: "/gallery", label: "Галерия" },
+  { href: "/contacts", label: "Контакти" },
+];
+---
+
+<header
+  class="sticky top-0 z-40 w-full py-4 px-4 md:px-8 max-w-6xl mx-auto mb-4 bg-[#380202]/95 backdrop-blur-sm shadow-md rounded-b-md"
+>
+  <div class="flex flex-row justify-between items-center pb-2 gap-2">
+    <!-- Logo with authentic traditional title styling -->
+    <a href="/" class="text-center md:text-left">
+      <img src="/images/logo.png" alt="Лого" />
+    </a>
+
+    <!-- Navigation Bar -->
+    <nav aria-label="Основна навигация">
+      <!-- Mobile menu toggle (opens the sidebar) -->
+      <button
+        id="mobile-nav-toggle"
+        class="md:hidden flex items-center px-4 py-2 border border-white/20 rounded text-stone-200 hover:text-white"
+        aria-expanded="false"
+        aria-controls="mobile-nav-sidebar"
+      >
+        <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20"
+          ><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path></svg
+        >
+      </button>
+
+      <!-- Desktop Nav Links -->
+      <ul class="hidden md:flex flex-row items-center gap-8">
+        {
+          navItems.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class={`text-sm tracking-widest uppercase transition-all duration-200 py-2 px-1 block ${
+                  currentPath === item.href
+                    ? "text-amber-400 font-semibold border-b-2 border-amber-500"
+                    : "text-stone-200 hover:text-amber-400"
+                }`}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Mobile sidebar: backdrop -->
+<div
+  id="mobile-nav-backdrop"
+  class="mobile-nav-backdrop fixed inset-0 bg-black/60 z-40 opacity-0 pointer-events-none md:hidden"
+  aria-hidden="true"
+>
+</div>
+
+<!-- Mobile sidebar: sliding panel -->
+<aside
+  id="mobile-nav-sidebar"
+  class="mobile-nav-sidebar fixed top-0 left-0 h-full w-72 max-w-[80%] bg-[#2a0303] border-r border-white/10 z-50 flex flex-col md:hidden"
+  aria-label="Мобилна навигация"
+>
+  <div class="flex items-center justify-between px-5 py-5 border-b border-white/10">
+    <button
+      id="mobile-nav-close"
+      class="text-stone-300 hover:text-amber-400 p-1"
+      aria-label="Затвори навигацията"
+    >
+      <svg class="h-5 w-5 fill-current" viewBox="0 0 20 20">
+        <path
+          d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+        ></path>
+      </svg>
+    </button>
+  </div>
+
+  <ul class="flex flex-col gap-1 px-3 py-4">
+    {
+      navItems.map((item) => (
+        <li>
+          <a
+            href={item.href}
+            class={`text-sm tracking-widest uppercase transition-colors duration-200 py-3 px-3 rounded-md block ${
+              currentPath === item.href
+                ? "text-amber-400 font-semibold bg-white/5"
+                : "text-stone-200 hover:text-amber-400 hover:bg-white/5"
+            }`}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</aside>
+
+<style>
+  /* Off-canvas sidebar: hidden off the left edge by default, slides in when open. */
+  .mobile-nav-sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .mobile-nav-sidebar.is-open {
+    transform: translateX(0);
+  }
+
+  .mobile-nav-backdrop {
+    transition: opacity 0.3s ease;
+  }
+
+  .mobile-nav-backdrop.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById("mobile-nav-toggle");
+  const closeBtn = document.getElementById("mobile-nav-close");
+  const sidebar = document.getElementById("mobile-nav-sidebar");
+  const backdrop = document.getElementById("mobile-nav-backdrop");
+
+  function openNav() {
+    sidebar?.classList.add("is-open");
+    backdrop?.classList.add("is-open");
+    toggle?.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeNav() {
+    sidebar?.classList.remove("is-open");
+    backdrop?.classList.remove("is-open");
+    toggle?.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  }
+
+  toggle?.addEventListener("click", openNav);
+  closeBtn?.addEventListener("click", closeNav);
+  backdrop?.addEventListener("click", closeNav);
+
+  // Close on Escape for accessibility
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeNav();
+  });
+
+  // Close the sidebar when a link inside it is clicked (in case of client-side routing)
+  sidebar?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeNav);
+  });
+</script>

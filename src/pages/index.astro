@@ -1,0 +1,158 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Slideshow from "../components/Slideshow.astro";
+---
+
+<Layout title="Ресторант Старата къща - Начало">
+  <main class="max-w-6xl w-full mx-auto px-4 md:px-8 py-4 grow">
+    <!-- Primary Content Card -->
+    <section
+      class="bg-[#faf7f0] rounded-lg shadow-2xl p-6 md:p-10 border border-stone-200/50 mb-12"
+      aria-labelledby="main-heading"
+    >
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <!-- Left Side: Warm Welcome Text -->
+        <article class="lg:col-span-5 flex flex-col justify-center">
+          <header class="mb-6">
+            <h1
+              id="main-heading"
+              class="text-2xl md:text-3xl font-serif text-[#5c0606] leading-snug tracking-wide uppercase font-bold border-b border-stone-200 pb-4"
+            >
+              Ретро музика, уют и<br />
+              <span class="text-[#8c0e0e]">българска кухня</span>
+            </h1>
+          </header>
+
+          <div class="space-y-4 text-stone-700 text-sm md:text-base leading-relaxed font-light">
+            <p>
+              Ресторант - градина <strong>Старата къща</strong> се намира в София, квартал Редута. На
+              пет минути от центъра на София и в същото време на тихо и спокойно място далеч от градския
+              шум.
+            </p>
+            <p>
+              Тук можете да опитате както традиционни салати и ястия, така и нашите авторски
+              предложения.
+            </p>
+            <p>
+              Всичко това сред естествената зеленина и дарът от природата, нашата лоза, под която да
+              прекарате незабравими моменти.
+            </p>
+            <p class="font-medium text-[#5c0606] italic">
+              Тук можете да чуете вечните евъргрийни както български, така и световни (рок енд рол).
+            </p>
+          </div>
+        </article>
+
+        <!-- Right Side: The Slideshow Panel -->
+        <div class="lg:col-span-7 h-[350px] lg:h-auto">
+          <Slideshow />
+        </div>
+      </div>
+    </section>
+
+    <!-- Lower Content Cards (Match Original 3-Column Layout) -->
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12" aria-label="Раздели и оферти">
+      <!-- Box 1: Festive Offers -->
+      <article
+        class="bg-[#2a0101]/95 text-stone-100 rounded-lg p-6 border border-[#540404] shadow-xl flex flex-col justify-between hover:border-amber-500/40 transition-colors duration-300"
+      >
+        <div>
+          <h2
+            class="text-xl font-serif text-amber-500 mb-4 border-b border-white/10 pb-2 uppercase tracking-wider text-center"
+          >
+            Празнични оферти
+          </h2>
+          <figure class="mb-4 overflow-hidden rounded">
+            <!-- Replace src with your image paths -->
+            <img
+              src="https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg"
+              alt="Празнични оферти в Старата Къща"
+              class="w-full h-40 object-cover hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+            />
+          </figure>
+          <p class="text-sm text-stone-300 leading-relaxed text-center">
+            Приемаме заявки за Вашите рождени дни, кръщенета, годишнини и други празници!
+          </p>
+        </div>
+      </article>
+
+      <!-- Box 2: About Us -->
+      <article
+        class="bg-[#2a0101]/95 text-stone-100 rounded-lg p-6 border border-[#540404] shadow-xl flex flex-col justify-between hover:border-amber-500/40 transition-colors duration-300"
+      >
+        <div>
+          <h2
+            class="text-xl font-serif text-amber-500 mb-4 border-b border-white/10 pb-2 uppercase tracking-wider text-center"
+          >
+            За нас
+          </h2>
+          <figure class="mb-4 overflow-hidden rounded">
+            <img
+              src="https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg"
+              alt="Снимка на бара"
+              class="w-full h-40 object-cover hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+            />
+          </figure>
+          <p class="text-sm text-stone-300 leading-relaxed text-center mb-6">
+            Ние предлагаме разнообразно меню, в това число и обедно, в което преобладава българска
+            кухня.
+          </p>
+        </div>
+        <div class="text-center mt-auto">
+          <a
+            href="/menu"
+            class="inline-block bg-[#800000] hover:bg-[#a00000] text-white text-xs font-bold tracking-widest uppercase px-6 py-3 rounded shadow transition-all duration-200"
+          >
+            ОЧАКВАМЕ ВИ !
+          </a>
+        </div>
+      </article>
+
+      <!-- Box 3: Reservation Panel -->
+      <article
+        class="bg-[#2a0101]/95 text-stone-100 rounded-lg p-6 border border-[#540404] shadow-xl flex flex-col justify-between hover:border-amber-500/40 transition-colors duration-300"
+      >
+        <div>
+          <h2
+            class="text-xl font-serif text-amber-500 mb-4 border-b border-white/10 pb-2 uppercase tracking-wider text-center"
+          >
+            Направете резервация
+          </h2>
+          <figure class="mb-4 overflow-hidden rounded">
+            <img
+              src="https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg"
+              alt="Картина на Старата Къща"
+              class="w-full h-40 object-cover hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+            />
+          </figure>
+          <div class="text-sm text-stone-300 leading-relaxed text-center">
+            <p class="mb-2 font-medium">Свържете се с нас на телефони:</p>
+            <ul class="space-y-1 text-amber-400 font-mono font-medium">
+              <li>
+                <a
+                  href="tel:+359893805905"
+                  class="hover:underline hover:text-white transition-colors">• (+359) 893 805 905</a
+                >
+              </li>
+              <li>
+                <a
+                  href="tel:+359886805905"
+                  class="hover:underline hover:text-white transition-colors">• (+359) 886 805 905</a
+                >
+              </li>
+              <li>
+                <a
+                  href="tel:+359878805905"
+                  class="hover:underline hover:text-white transition-colors">• (+359) 878 805 905</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+</Layout>

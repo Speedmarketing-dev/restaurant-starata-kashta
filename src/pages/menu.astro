@@ -1,0 +1,211 @@
+---
+import Image from "astro/components/Image.astro";
+import Layout from "../layouts/Layout.astro";
+
+const menuCategories = [
+  { id: "salads", slug: "salati", title: "Салати", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" },
+  { id: "starters", slug: "predyastiya", title: "Предястия", img: "/images/predyastiya.jpg" },
+  { id: "soups", slug: "supi", title: "Супи", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" },
+  { id: "quick-dishes", slug: "alaminuti", title: "Аламинути", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" },
+  { id: "breaded", slug: "paneta", title: "Панета", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" },
+  { id: "grill", slug: "skara", title: "Скара", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" },
+  { id: "fish", slug: "riba", title: "Риба", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" },
+  { id: "specialties", slug: "specialiteti", title: "Специалитети", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" },
+  { id: "side-dishes", slug: "garnituri", title: "Гарнитури", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" },
+  { id: "desserts", slug: "deserti", title: "Десерти", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" },
+  { id: "draft-beer", slug: "nalivna-bira", title: "Наливна бира", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" },
+  { id: "beer", slug: "bira", title: "Бира", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" },
+  { id: "others", slug: "drugi", title: "Други", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" },
+  { id: "rakia", slug: "rakia", title: "Ракии", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" },
+  { id: "vodka", slug: "vodka", title: "Водка", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" },
+  { id: "ouzo", slug: "ouzo", title: "Узо", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" },
+  { id: "whiskey", slug: "whiskey", title: "Уиски", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" },
+  { id: "draft-wine", slug: "nalivni-vina", title: "Наливни вина", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" },
+  { id: "wine", slug: "vina", title: "Вина", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" },
+  { id: "lunch", slug: "obedno-menyu", title: "Обедно меню", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" }
+];
+---
+
+<Layout title="Меню - Ресторант Старата къща">
+  <main class="max-w-6xl w-full mx-auto px-4 md:px-8 py-4 grow">
+
+    <!-- Main Content Container: parchment card matching the site's rustic-tavern styling -->
+    <section class="bg-[#faf7f0] rounded-xl shadow-2xl p-6 md:p-12 border border-stone-200/50 mb-12 relative overflow-hidden">
+
+      <!-- Decorative top accent bar -->
+      <div class="absolute top-0 left-0 right-0 h-1.5 bg-linear-to-r from-[#5c0606] via-[#8c0e0e] to-[#5c0606]"></div>
+
+      <!-- Section Header -->
+      <header class="text-center max-w-2xl mx-auto mb-12 pb-8 border-b border-stone-200/70 relative">
+        <h1 class="text-3xl md:text-5xl font-serif text-[#5c0606] font-bold tracking-wide uppercase mb-4">
+          Нашето Меню
+        </h1>
+
+        <!-- Interactive Search Bar -->
+        <div class="mt-8 max-w-md mx-auto relative">
+          <input
+            type="search"
+            id="category-search"
+            placeholder="Търсене (напр. Скара, Салати...)"
+            class="w-full bg-white border-2 border-stone-200 rounded-full py-3 pl-6 pr-12 text-sm text-stone-800 outline-none focus:border-[#8c0e0e] focus:ring-2 focus:ring-[#8c0e0e]/20 transition-colors duration-200 shadow-sm"
+            aria-label="Търсене на категория"
+          />
+          <span class="absolute right-5 top-1/2 -translate-y-1/2 text-[#8c0e0e]/60 text-base pointer-events-none" aria-hidden="true">
+            &#128269;
+          </span>
+        </div>
+      </header>
+
+      <div
+        id="categories-flex"
+        class="flex flex-wrap gap-5 md:gap-7"
+      >
+        {menuCategories.map((category) => (
+          <a
+            href={`/menu/${category.slug}`}
+            class="menu-card group relative bg-white rounded-lg border border-stone-200/70 overflow-hidden shadow-sm block"
+            data-title={category.title.toLowerCase()}
+          >
+            <!-- Image Container (fixed aspect ratio so images can never blow up the layout) -->
+            <div class="relative w-full aspect-4/3 overflow-hidden bg-stone-100">
+              <Image
+                src={category.img}
+                alt={`${category.title} - Ресторант Старата къща`}
+                class="menu-card-img absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+                width="400"
+                height="300"
+              />
+              <!-- Overlay so title text stays readable regardless of the underlying image -->
+              <div class="absolute inset-0 bg-linear-to-t from-[#2a0303]/90 via-[#2a0303]/35 to-[#2a0303]/5"></div>
+
+              <!-- Title overlaid on the image, bottom-anchored -->
+              <div class="absolute inset-x-0 bottom-0 p-3 md:p-4">
+                <h2 class="text-white font-serif font-bold text-sm md:text-lg tracking-wide drop-shadow-md">
+                  {category.title}
+                </h2>
+              </div>
+
+              <!-- Accent line, animates in on hover; lives inside the image so no space is left below it -->
+              <div class="menu-card-accent absolute bottom-0 left-0 h-1 w-full bg-[#8c0e0e] origin-left scale-x-0"></div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Search No Results State -->
+      <div id="no-results" class="hidden text-center py-16 text-stone-500">
+        <span class="text-4xl block mb-3" aria-hidden="true">&#127860;</span>
+        Няма открити категории по този критерий. Опитайте отново!
+      </div>
+
+    </section>
+  </main>
+</Layout>
+
+<style>
+  /* Flex layout for the category cards. One column on mobile, two on small screens, three on tablet, four on desktop. */
+  #categories-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+
+  .menu-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  @media (min-width: 480px) {
+    .menu-card {
+      flex-basis: calc(50% - 0.625rem);
+      max-width: calc(50% - 0.625rem);
+    }
+  }
+
+  @media (min-width: 768px) {
+    #categories-flex {
+      gap: 1.75rem;
+    }
+    .menu-card {
+      flex-basis: calc(33.333% - 1.167rem);
+      max-width: calc(33.333% - 1.167rem);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .menu-card {
+      flex-basis: calc(25% - 1.3125rem);
+      max-width: calc(25% - 1.3125rem);
+    }
+  }
+
+  /* Hover / focus animation for each category card.
+     Written as plain CSS (rather than relying purely on Tailwind's `group-hover`)
+     so the effect is guaranteed to work regardless of Tailwind version/config. */
+  .menu-card {
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  }
+
+  .menu-card:hover,
+  .menu-card:focus-visible {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 30px -12px rgba(92, 6, 6, 0.35);
+    border-color: rgba(140, 14, 14, 0.4);
+  }
+
+  .menu-card-img {
+    transition: transform 0.6s ease;
+  }
+
+  .menu-card:hover .menu-card-img,
+  .menu-card:focus-visible .menu-card-img {
+    transform: scale(1.08);
+  }
+
+  .menu-card-accent {
+    transition: transform 0.35s ease;
+  }
+
+  .menu-card:hover .menu-card-accent,
+  .menu-card:focus-visible .menu-card-accent {
+    transform: scaleX(1);
+  }
+
+  /* Smooth fade for the search filtering */
+  .menu-card {
+    opacity: 1;
+  }
+  .menu-card.hidden {
+    display: none;
+  }
+</style>
+
+<script>
+  // Simple, efficient vanilla javascript search matching Bulgarian characters
+  const searchInput = document.getElementById('category-search') as HTMLInputElement;
+  const cards = document.querySelectorAll<HTMLElement>('#categories-flex a');
+  const noResults = document.getElementById('no-results');
+
+  searchInput?.addEventListener('input', (e) => {
+    const query = (e.target as HTMLInputElement).value.toLowerCase().trim();
+    let visibleCount = 0;
+
+    cards.forEach((card) => {
+      const title = card.getAttribute('data-title') || '';
+      if (title.includes(query)) {
+        card.classList.remove('hidden');
+        visibleCount++;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+
+    if (visibleCount === 0) {
+      noResults?.classList.remove('hidden');
+    } else {
+      noResults?.classList.add('hidden');
+    }
+  });
+</script>

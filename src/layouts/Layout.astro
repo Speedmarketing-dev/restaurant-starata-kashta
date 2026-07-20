@@ -1,0 +1,120 @@
+---
+import Footer from "../components/Footer.astro";
+import Navigation from "../components/Navigation.astro";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description = "Ресторант – градина Старата къща се намира в София,квартал Редута.На пет минути от центъра на града.На тихо и спокойно място далече от градския шум.Спокойната и приятна ретро музика, съчетана със сянката на живописната тридесет годишна лоза, придава на  заведението чар и уют, все едно сте на километри от София.",
+  ogImage = "/images/og-image.jpg",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://staratakashta-bg.com");
+---
+
+<!doctype html>
+<html lang="bg" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="keywords"
+      content="ресторант, механа, българска кухня, ястия, гозби, специалитети, традиционно, битов, стил, мероприятие,  тържество, частно парти, ретро музика, уют, градина, лоза, асма, редута"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(ogImage, canonicalURL)} />
+
+    <!-- Cyrillic Friendly Fonts (Montserrat & Playfair Display) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Schema.org Local Business Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "@id": "https://staratakashta-bg.com",
+        "name": "Ресторант Старата къща",
+        "image": "https://staratakashta-bg.com/images/og-image.jpg",
+        "url": "https://staratakashta-bg.com",
+        "telephone": ["+359893805905", "+359886805905", "+359878805905"],
+        "servesCuisine": "Bulgarian",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "кв. Редута",
+          "addressLocality": "София",
+          "postalCode": "1505",
+          "addressCountry": "BG"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "42.69359612837895",
+          "longitude": "23.357010486365017"
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "11:30",
+          "closes": "22:30"
+        }
+      }
+    </script>
+  </head>
+  <body
+    class="bg-linear-to-b from-[#4d0404] via-[#380202] to-[#260101] text-stone-800 font-sans antialiased flex flex-col min-h-screen relative"
+  >
+    <!-- Sophisticated background pattern mimicking traditional damask fabric texture -->
+    <div class="absolute inset-0 bg-repeat opacity-[0.03] pointer-events-none z-0"></div>
+
+    <div class="relative z-10 flex flex-col min-h-screen">
+      <Navigation />
+      <slot />
+      <Footer />
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Merriweather", serif;
+  }
+  body {
+    font-family: "Montserrat", sans-serif;
+  }
+</style>
