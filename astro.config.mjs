@@ -12,7 +12,7 @@ export default defineConfig({
   site: "https://speedmarketing-dev.github.io",
 
   // 2. Set the exact name of your GitHub repository (with leading slash)
-  base: isGithubActions ? "/restaurant-starata-kashta" : "/",
+  base: isGithubActions ? "/restaurant-starata-kashta/" : "/",
   vite: {
     plugins: [tailwindcss()],
   },
