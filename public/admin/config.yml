@@ -1,0 +1,83 @@
+local_backend: true
+
+backend:
+  name: github
+  repo: YOUR_GITHUB_USERNAME/YOUR_REPO_NAME # e.g. staratakashta/staratakashta-site
+  branch: main # change if your default branch is different
+  base_url: https://YOUR-OAUTH-CLIENT-URL # URL of whichever OAuth client you deploy — see SETUP.md
+  auth_endpoint:
+    auth # route path the OAuth client exposes for the login step;
+    # adjust to match the specific client you choose (some use /auth, some /callback, etc. — check its README)
+
+# Files created/edited through the CMS are committed directly (no draft/review step).
+# Switch to editorial_workflow below if you'd rather changes open as a PR for review
+publish_mode: simple
+
+# Not used by this collection (no images in the menu items yet), but required by Decap.
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+locale: "bg"
+
+collections:
+  - name: "menu"
+    label: "Меню"
+    label_singular: "Категория меню"
+    folder: "src/content/menu"
+    delete: true
+    extension: "yaml"
+    format: "yaml"
+    # The filename (without extension) becomes the URL slug, e.g. "predyastiya" -> /menu/predyastiya
+    slug: "{{slug}}"
+    identifier_field: categoryTitle
+    fields:
+      - label: "Заглавие на категорията"
+        name: "categoryTitle"
+        widget: "string"
+        hint: 'Показва се като заглавие на страницата, напр. "Предястия"'
+
+      - label: "Дата"
+        name: "categoryDate"
+        widget: "string"
+        required: false
+        hint: 'За менюта, които се сменят редовно, напр. "17.07.2026". Оставете празно, ако не е нужно.'
+
+      - label: "Артикули"
+        name: "items"
+        widget: "list"
+        summary: "{{fields.name}} — {{fields.priceEur}}€"
+        fields:
+          - label: "Име на артикула"
+            name: "name"
+            widget: "string"
+
+          - label: "Раздел"
+            name: "subheading"
+            widget: "string"
+            required: false
+            hint: 'Поставете тук заглавие напр. "Скара", "Риба" или "Нашето предложение". Оставете празно за всички следващи артикули от същия раздел.'
+
+          - label: "Грамаж"
+            name: "weight"
+            widget: "string"
+            required: false
+            hint: 'напр. "200 гр."'
+
+          - label: "Цена в евро"
+            name: "priceEur"
+            widget: "number"
+            value_type: "float"
+            hint: "напр. 5.90"
+
+          - label: "Цена в лева"
+            name: "priceBgn"
+            widget: "number"
+            value_type: "float"
+            required: false
+            hint: "Оставете празно, ако артикулът има цена само в евро."
+
+          - label: "Бележка"
+            name: "note"
+            widget: "string"
+            required: false
+            hint: 'напр. "люто" или "препоръчано"'

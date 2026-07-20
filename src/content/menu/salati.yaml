@@ -2,69 +2,70 @@ categoryTitle: Салати
 items:
   - name: Шопска салата
     weight: 400 гр.
-    priceEur: 5.50
+    priceEur: 5.5
     priceBgn: 10.76
   - name: Овчарска
     weight: 450 гр.
-    priceEur: 6.20
+    priceEur: 6.2
     priceBgn: 12.13
   - name: Белени домати с моцарела и босилкова паста
     weight: 350 гр.
-    priceEur: 6.90
-    priceBgn: 13.50
+    priceEur: 6.9
+    priceBgn: 13.5
   - name: Магданозена
     weight: 250 гр.
-    priceEur: 6.50
+    priceEur: 6.5
     priceBgn: 12.71
   - name: Селска
     weight: 400 гр.
-    priceEur: 5.90
+    priceEur: 5.9
     priceBgn: 11.54
   - name: Селски катък
     weight: 300 гр.
-    priceEur: 5.90
+    priceEur: 5.9
     priceBgn: 11.54
   - name: Манастирска
     weight: 400 гр.
-    priceEur: 6.20
+    priceEur: 6.2
     priceBgn: 12.13
   - name: Колибарска
     weight: 400 гр.
-    priceEur: 6.20
+    priceEur: 6.2
     priceBgn: 12.13
   - name: Гръцка
     weight: 400 гр.
-    priceEur: 6.20
+    priceEur: 6.2
     priceBgn: 12.13
   - name: Жътварска
     weight: 400 гр.
-    priceEur: 6.50
+    priceEur: 6.5
     priceBgn: 12.71
   - name: Зелена салата с яйце
     weight: 400 гр.
-    priceEur: 5.50
+    priceEur: 5.5
     priceBgn: 10.76
   - name: Зелена салата с риба тон
     weight: 300 гр.
-    priceEur: 7.90
+    priceEur: 7.9
     priceBgn: 15.45
-  - name: Чути люшки - (белени домати с хумус от маслини, сирене, авокадо, люти чушки, босилков дресинг и препечени франзелини)
+  - name: Чути люшки - (белени домати с хумус от маслини, сирене, авокадо, люти
+      чушки, босилков дресинг и препечени франзелини)
     weight: 350 гр.
-    priceEur: 6.80
-    priceBgn: 13.30
+    priceEur: 6.8
+    priceBgn: 13.3
   - name: Домати с плочка сирене със зехтин и босилек
     weight: 350 гр.
-    priceEur: 5.50
+    priceEur: 5.5
     priceBgn: 10.76
   - name: Снежанка с орехи
     weight: 200 гр.
-    priceEur: 5.90
+    priceEur: 5.9
     priceBgn: 11.54
   - name: Зеле и моркови
     weight: 300 гр.
-    priceEur: 4.20
+    priceEur: 4.2
     priceBgn: 8.21
   - name: Ракиена салата
     weight: 300 гр.
-    priceEur: 5.90
+    priceEur: 5.9
     priceBgn: 11.54

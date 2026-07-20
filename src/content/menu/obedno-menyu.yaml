@@ -2,159 +2,130 @@ categoryTitle: Обедно меню
 categoryDate: 17.07.2026
 items:
   - name: Леща
-    priceEur: 2.50
-
+    priceEur: 2.5
+    weight: ""
+    subheading: ""
   - name: Шкембе
-    priceEur: 2.90
+    priceEur: 2.9
     priceBgn: 5.67
-
   - name: Пилешка супа
-    priceEur: 2.90
+    priceEur: 2.9
     priceBgn: 5.67
-
   - name: Ориз с тиквички на фурна
-    priceEur: 3.00
+    priceEur: 3
     priceBgn: 5.87
-
   - name: Плескавица на скара със зелева салата и лютеница
-    priceEur: 4.00
+    priceEur: 4
     priceBgn: 7.82
-
   - name: Свинско с прясно зеле на фурна
-    priceEur: 4.00
+    priceEur: 4
     priceBgn: 7.82
-
   - name: Свински дроб по-селски
-    priceEur: 4.00
+    priceEur: 4
     priceBgn: 7.82
-
   - name: Домашна торта
-    priceEur: 3.90
+    priceEur: 3.9
     priceBgn: 7.62
-
   - name: Палачинка
-    priceEur: 1.80
+    priceEur: 1.8
     priceBgn: 3.52
-
-  - name: "Салата 1 (марула, пресен спанак, домат, печена чушка, натрошено сирене и яйце, сос винегрет)"
+  - name: Салата 1 (марула, пресен спанак, домат, печена чушка, натрошено сирене и
+      яйце, сос винегрет)
     subheading: Нашето предложение (приготвя се на момента)
-    priceEur: 5.90
+    priceEur: 5.9
     priceBgn: 11.54
-
-  - name: "Салата 2 (айсберг, марула, белен домат, краставичка, царевица, моцарела, босилков дресинг)"
-    priceEur: 6.90
-    priceBgn: 13.50
-
-  - name: "Чути люти чушки (белен домат с хумус от зелени маслини, авокадо, сирене, люти чушки, семена, босилков дресинг)"
-    priceEur: 6.90
-    priceBgn: 13.50
-
+  - name: Салата 2 (айсберг, марула, белен домат, краставичка, царевица, моцарела,
+      босилков дресинг)
+    priceEur: 6.9
+    priceBgn: 13.5
+  - name: Чути люти чушки (белен домат с хумус от зелени маслини, авокадо, сирене,
+      люти чушки, семена, босилков дресинг)
+    priceEur: 6.9
+    priceBgn: 13.5
   - name: Сач с тиквички, картофи, чушка, гъби, лук, морков, домати и кашкавал
     weight: 800 г.
-    priceEur: 12.70
+    priceEur: 12.7
     priceBgn: 24.84
-
   - name: Сач със свинско, тиквички, чушки, гъби, лук, домат и кашкавал
     weight: 800 г.
-    priceEur: 15.80
-    priceBgn: 30.90
-
+    priceEur: 15.8
+    priceBgn: 30.9
   - name: Сач с пилешко, гъби, чушки, картофи, лук, домат и кашкавал
     weight: 800 г.
-    priceEur: 15.80
-    priceBgn: 30.90
-
+    priceEur: 15.8
+    priceBgn: 30.9
   - name: Свински дроб с лук на тиган
     weight: 300 г.
-    priceEur: 6.90
-    priceBgn: 13.50
-
+    priceEur: 6.9
+    priceBgn: 13.5
   - name: Свински език с гъби
     weight: 200 г.
-    priceEur: 6.90
-    priceBgn: 13.50
-
+    priceEur: 6.9
+    priceBgn: 13.5
   - name: Телешки кюфтета (2 бр.) на скара със зелена салата
-    priceEur: 6.90
-    priceBgn: 13.50
-
+    priceEur: 6.9
+    priceBgn: 13.5
   - name: Телешки джолан със задушени картофи
-    priceEur: 9.50
+    priceEur: 9.5
     priceBgn: 18.57
-
   - name: Плескавица на скара с пържени картофи и лютеница
-    priceEur: 6.90
-    priceBgn: 13.50
-
+    priceEur: 6.9
+    priceBgn: 13.5
   - name: Шкембе в масло
-    priceEur: 6.90
-    priceBgn: 13.50
-
+    priceEur: 6.9
+    priceBgn: 13.5
   - name: Пържени крилца с чеснов сос и пържени картофи
-    priceEur: 6.90
-    priceBgn: 13.50
-
+    priceEur: 6.9
+    priceBgn: 13.5
   - name: Пилешки филенца на плоча с "Рокфор" и сметана
-    priceEur: 6.80
-    priceBgn: 13.30
-
+    priceEur: 6.8
+    priceBgn: 13.3
   - name: Свински врат с лук на тиган с пържени картофи
     weight: 300 г.
-    priceEur: 7.90
+    priceEur: 7.9
     priceBgn: 15.45
-
   - name: Свински карета на плоча със сос от манатарка и босилков ориз
     weight: 300 г.
-    priceEur: 7.90
+    priceEur: 7.9
     priceBgn: 15.45
-
   - name: Свинско бонфиле на плоча с "Пепър" сос и задушени картофи
     weight: 300 г.
-    priceEur: 7.90
+    priceEur: 7.9
     priceBgn: 15.45
-
   - name: Содено хлебче
-    priceEur: 2.90
+    priceEur: 2.9
     priceBgn: 5.67
-
   - name: Пъстърва на скара със зелена салата
     subheading: Риба
     weight: 400 г.
-    priceEur: 9.70
+    priceEur: 9.7
     priceBgn: 18.97
-
   - name: Лаврак на скара със зелена салата
     weight: 350 г.
-    priceEur: 10.20
+    priceEur: 10.2
     priceBgn: 19.95
-
   - name: Ципура на скара със зелена салата
     weight: 400 г.
-    priceEur: 10.50
+    priceEur: 10.5
     priceBgn: 19.95
-
   - name: Кюфте
     subheading: Скара
     weight: 100 г.
-    priceEur: 1.60
+    priceEur: 1.6
     priceBgn: 3.13
-
   - name: Кебапче
     weight: 100 г.
-    priceEur: 1.60
+    priceEur: 1.6
     priceBgn: 3.13
-
   - name: Нервозно кюфте
     weight: 100 г.
-    priceEur: 1.80
+    priceEur: 1.8
     priceBgn: 3.52
-
   - name: Свинска вратна пържола
     weight: 200 г.
-    priceEur: 5.90
+    priceEur: 5.9
     priceBgn: 11.54
-
   - name: Пилешко филе на скара
     weight: 200 г.
-    priceEur: 5.90
+    priceEur: 5.9
     priceBgn: 11.54
