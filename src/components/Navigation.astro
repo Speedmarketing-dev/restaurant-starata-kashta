@@ -8,6 +8,9 @@ const navItems = [
   { href: `${base}gallery`, label: "Галерия" },
   { href: `${base}contacts`, label: "Контакти" },
 ];
+
+// Helper function to strip trailing slashes for reliable matching
+const normalize = (path: string) => path.replace(/\/$/, "");
 ---
 
 <header
@@ -41,7 +44,7 @@ const navItems = [
               <a
                 href={item.href}
                 class={`text-sm tracking-widest uppercase transition-all duration-200 py-2 px-1 block ${
-                  currentPath === item.href
+                  normalize(currentPath) === normalize(item.href)
                     ? "text-amber-400 font-semibold border-b-2 border-amber-500"
                     : "text-stone-200 hover:text-amber-400"
                 }`}
