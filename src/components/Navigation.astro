@@ -1,12 +1,13 @@
 ---
+import { BASE_URL } from "../constants.ts";
+
 const currentPath = Astro.url.pathname;
-const base = import.meta.env.BASE_URL;
 
 const navItems = [
-  { href: `${base}`, label: "Начало" },
-  { href: `${base}menu`, label: "Меню" },
-  { href: `${base}gallery`, label: "Галерия" },
-  { href: `${base}contacts`, label: "Контакти" },
+  { href: `${BASE_URL}`, label: "Начало" },
+  { href: `${BASE_URL}menu`, label: "Меню" },
+  { href: `${BASE_URL}gallery`, label: "Галерия" },
+  { href: `${BASE_URL}contacts`, label: "Контакти" },
 ];
 
 // Helper function to strip trailing slashes for reliable matching
@@ -18,8 +19,8 @@ const normalize = (path: string) => path.replace(/\/$/, "");
 >
   <div class="flex flex-row justify-between items-center pb-2 gap-2">
     <!-- Logo with authentic traditional title styling -->
-    <a href=`${base}` class="text-center md:text-left">
-      <img src={`${base}images/logo.png`} alt="Лого" />
+    <a href=`${BASE_URL}` class="text-center md:text-left">
+      <img src={`${BASE_URL}images/logo.png`} alt="Лого" />
     </a>
 
     <!-- Navigation Bar -->
@@ -94,7 +95,7 @@ const normalize = (path: string) => path.replace(/\/$/, "");
           <a
             href={item.href}
             class={`text-sm tracking-widest uppercase transition-colors duration-200 py-3 px-3 rounded-md block ${
-              currentPath === item.href
+              normalize(currentPath) === normalize(item.href)
                 ? "text-amber-400 font-semibold bg-white/5"
                 : "text-stone-200 hover:text-amber-400 hover:bg-white/5"
             }`}

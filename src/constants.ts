@@ -7,3 +7,5 @@ export const CONTACT_INFO = {
   embedMapsUrl:
     "https://www.google.com/maps?q=42.69359612837895,23.357010486365017&z=15&output=embed",
 };
+
+export const BASE_URL = import.meta.env.BASE_URL;

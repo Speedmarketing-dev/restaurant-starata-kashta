@@ -1,4 +1,5 @@
 ---
+import { BASE_URL } from "../constants.ts";
 import Image from "astro/components/Image.astro";
 import Layout from "../layouts/Layout.astro";
 
@@ -62,7 +63,7 @@ const menuCategories = [
       >
         {menuCategories.map((category) => (
           <a
-            href={`/menu/${category.slug}`}
+            href={`${BASE_URL}menu/${category.slug}`}
             class="menu-card group relative bg-white rounded-lg border border-stone-200/70 overflow-hidden shadow-sm block"
             data-title={category.title.toLowerCase()}
           >

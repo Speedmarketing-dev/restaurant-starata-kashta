@@ -1,4 +1,5 @@
 ---
+import { BASE_URL } from "../../constants.ts";
 import { getCollection, type CollectionEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 
@@ -34,7 +35,7 @@ const fmt = (n: number) => n.toFixed(2);
 
       <!-- Back link -->
       <a
-        href="/menu"
+        href=`${BASE_URL}menu`
         class="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-[#8c0e0e] hover:text-[#5c0606] transition-colors duration-200 mb-8"
       >
         <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 20 20" aria-hidden="true">
