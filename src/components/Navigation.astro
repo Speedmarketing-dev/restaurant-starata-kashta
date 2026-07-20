@@ -3,10 +3,10 @@ const currentPath = Astro.url.pathname;
 const base = import.meta.env.BASE_URL;
 
 const navItems = [
-  { href: `${base}/`, label: "Начало" },
-  { href: `${base}/menu`, label: "Меню" },
-  { href: `${base}/gallery`, label: "Галерия" },
-  { href: `${base}/contacts`, label: "Контакти" },
+  { href: `${base}`, label: "Начало" },
+  { href: `${base}menu`, label: "Меню" },
+  { href: `${base}gallery`, label: "Галерия" },
+  { href: `${base}contacts`, label: "Контакти" },
 ];
 ---
 
@@ -15,7 +15,7 @@ const navItems = [
 >
   <div class="flex flex-row justify-between items-center pb-2 gap-2">
     <!-- Logo with authentic traditional title styling -->
-    <a href="/" class="text-center md:text-left">
+    <a href=`${base}` class="text-center md:text-left">
       <img src="./images/logo.png" alt="Лого" />
     </a>
 
