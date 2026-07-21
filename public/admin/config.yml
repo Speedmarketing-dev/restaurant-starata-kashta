@@ -10,9 +10,6 @@ backend:
 # Better Decap + Bridge logo (optional)
 logo_url: https://decapbridge.com/decapcms-with-bridge.svg
 
-# Add site links in Decap CMS (optional)
-site_url: https://speedmarketing-dev.github.io
-
 # Files created/edited through the CMS are committed directly (no draft/review step).
 # Switch to editorial_workflow below if you'd rather changes open as a PR for review
 publish_mode: simple
