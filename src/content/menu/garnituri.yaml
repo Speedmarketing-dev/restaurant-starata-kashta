@@ -1,0 +1,34 @@
+categoryTitle: "Гарнитури"
+items:
+  - name: "Пържени картофи"
+    weight: "150 гр."
+    priceEur: 1.80
+    priceBgn: 3.52
+  - name: "Задушени картофи"
+    weight: "150 гр."
+    priceEur: 1.80
+    priceBgn: 3.52
+  - name: "Лютеница"
+    weight: "100 гр."
+    priceEur: 1.60
+    priceBgn: 3.13
+  - name: "Хляб"
+    weight: "1 бр."
+    priceEur: 0.20
+    priceBgn: 0.39
+  - name: "Препечен хляб"
+    weight: "1 бр."
+    priceEur: 0.25
+    priceBgn: 0.49
+  - name: "Люти чушки"
+    weight: "1 бр."
+    priceEur: 0.30
+    priceBgn: 0.58
+  - name: "Пресни зеленчуци"
+    weight: "150 гр."
+    priceEur: 1.80
+    priceBgn: 3.52
+  - name: "Содено хлебче"
+    weight: "250 гр."
+    priceEur: 2.90
+    priceBgn: 5.67

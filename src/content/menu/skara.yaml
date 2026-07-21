@@ -1,0 +1,43 @@
+categoryTitle: "Скара"
+items:
+  - name: "Кебапче"
+    weight: "100 гр."
+    priceEur: 1.60
+    priceBgn: 3.12
+  - name: "Кюфте"
+    weight: "100 гр."
+    priceEur: 1.50
+    priceBgn: 3.12
+  - name: "Нервозно кюфте"
+    weight: "100 гр."
+    priceEur: 1.80
+    priceBgn: 3.52
+  - name: "Телешки кюфтета 2бр.със зелена салата"
+    weight: "300 гр."
+    priceEur: 5.20
+    priceBgn: 10.17
+  - name: "Свинско шишче"
+    weight: "120 гр."
+    priceEur: 4.80
+    priceBgn: 9.39
+  - name: "Свинска вратна пържола / без кост"
+    weight: "200 гр."
+    priceEur: 5.90
+    priceBgn: 11.54
+  - name: "Свински ребра на скара"
+    weight: "350 гр."
+    priceEur: 7.90
+    priceBgn: 15.45
+  - name: "Пилешко шишче"
+    weight: "120 гр."
+    priceEur: 4.80
+    priceBgn: 9.39
+  - name: "Пилешка пържола филе"
+    weight: "200 гр."
+    priceEur: 5.90
+    priceBgn: 11.54
+  - name: "Мешана скара"
+    weight: "800 гр."
+    priceEur: 16.00
+    priceBgn: 31.21
+    note: "свинска пържола, св. шишче, кюфте, кебапче, бекон, пържени картофи"

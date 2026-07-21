@@ -59,48 +59,64 @@ const fmt = (n: number) => n.toFixed(2);
         }
       </header>
 
-      <!-- Item list -->
-      <ul class="divide-y divide-stone-200/70">
-        {
-          items.map((item) => (
-            <>
-              {item.subheading && (
-                <li class="pt-16 pb-2 first:pt-0" aria-hidden="false">
-                  <p class="text-xs text-center md:text-sm font-semibold tracking-[0.2em] uppercase text-[#8c0e0e]">
-                    {item.subheading}
-                  </p>
-                </li>
-              )}
-              <li class="menu-item group flex items-start justify-between gap-4 py-4 md:py-5 px-2 md:px-3 rounded-md transition-colors duration-200">
-                <div class="flex-1 min-w-0">
-                  <p class="font-serif text-base md:text-lg text-stone-800 font-semibold leading-snug">
-                    {item.name}
-                    {item.note && (
-                      <span class="ml-2 align-middle text-[10px] font-sans font-semibold uppercase tracking-wide text-[#8c0e0e] bg-[#8c0e0e]/10 rounded-full px-2 py-0.5">
-                        {item.note}
-                      </span>
-                    )}
-                  </p>
-                  {item.weight && (
-                    <p class="text-xs md:text-sm text-stone-500 mt-1">{item.weight}</p>
-                  )}
-                </div>
-
-                <div class="text-right shrink-0 pt-0.5">
-                  <p class="font-serif text-base md:text-lg font-bold text-[#8c0e0e] whitespace-nowrap">
-                    {fmt(item.priceEur)}&nbsp;€
-                  </p>
-                  {item.priceBgn !== undefined && (
-                    <p class="text-xs md:text-sm text-stone-700 whitespace-nowrap">
-                      {fmt(item.priceBgn)}&nbsp;лв.
+      <!-- Conditional Item List -->
+      {
+        items && items.length > 0 ? (
+          <ul class="divide-y divide-stone-200/70">
+            {items.map((item) => (
+              <>
+                {item.subheading && (
+                  <li class="pt-16 pb-2 first:pt-0" aria-hidden="true">
+                    <p class="text-xs text-center md:text-sm font-semibold tracking-[0.2em] uppercase text-[#8c0e0e]">
+                      {item.subheading}
                     </p>
-                  )}
-                </div>
-              </li>
-            </>
-          ))
-        }
-      </ul>
+                  </li>
+                )}
+                <li class="menu-item group flex items-start justify-between gap-4 py-4 md:py-5 px-2 md:px-3 rounded-md transition-colors duration-200">
+                  <div class="flex-1 min-w-0">
+                    <p class="font-serif text-base md:text-lg text-stone-800 font-semibold leading-snug">
+                      {item.name}
+                      {item.note && (
+                        <span class="block mt-1 w-fit align-middle text-[10px] font-sans font-semibold uppercase tracking-wide text-[#8c0e0e] bg-[#8c0e0e]/10 rounded-md px-2 py-0.5">
+                          {item.note}
+                        </span>
+                      )}
+                    </p>
+                    {item.weight && (
+                      <p class="text-xs md:text-sm text-stone-700 mt-1">{item.weight}</p>
+                    )}
+                  </div>
+
+                  <div class="text-right shrink-0 pt-0.5">
+                    {item.priceEur !== undefined && item.priceEur !== null && (
+                      <p class="font-serif text-base md:text-lg font-bold text-[#8c0e0e] whitespace-nowrap">
+                        {fmt(item.priceEur)}&nbsp;€
+                      </p>
+                    )}
+
+                    {item.priceBgn !== undefined && item.priceBgn !== null && (
+                      <p class="text-xs md:text-sm text-stone-700 whitespace-nowrap">
+                        {fmt(item.priceBgn)}&nbsp;лв.
+                      </p>
+                    )}
+                  </div>
+                </li>
+              </>
+            ))}
+          </ul>
+        ) : (
+          /* Friendly Fallback State for empty or omitted categories */
+          <div class="text-center py-16 px-4">
+            <span class="text-5xl block mb-4" aria-hidden="true">
+              🍳
+            </span>
+            <p class="text-stone-700 text-sm md:text-base font-light max-w-md mx-auto leading-relaxed">
+              В момента няма ястия в тази категория. Моля, проверете отново по-късно или попитайте
+              за нашите предложения на място!
+            </p>
+          </div>
+        )
+      }
     </section>
   </main>
 </Layout>

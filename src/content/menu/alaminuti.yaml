@@ -1,0 +1,30 @@
+categoryTitle: "Аламинути"
+items:
+  - name: "Яйца на очи"
+    weight: "3 бр."
+    priceEur: 2.90
+    priceBgn: 5.67
+  - name: "Яйца със сирене и лук"
+    weight: "200 гр."
+    priceEur: 3.90
+    priceBgn: 7.63
+  - name: "Яйца по панагюрски"
+    weight: "3 бр."
+    priceEur: 5.50
+    priceBgn: 10.76
+  - name: "Яйца с бекон и кашкавал"
+    weight: "300 гр."
+    priceEur: 5.90
+    priceBgn: 11.54
+  - name: "Омлет със сирене"
+    weight: "200 гр."
+    priceEur: 4.20
+    priceBgn: 7.63
+  - name: 'Омлет "Асорти"'
+    weight: "200 гр."
+    priceEur: 5.50
+    priceBgn: 10.76
+  - name: "Миш – маш"
+    weight: "200 гр."
+    priceEur: 5.20
+    priceBgn: 10.17

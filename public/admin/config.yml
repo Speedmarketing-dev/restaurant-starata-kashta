@@ -46,11 +46,13 @@ collections:
       - label: "Артикули"
         name: "items"
         widget: "list"
+        required: false
         summary: "{{fields.name}} — {{fields.priceEur}}€"
         fields:
           - label: "Име на артикула"
             name: "name"
             widget: "string"
+            required: false
 
           - label: "Раздел"
             name: "subheading"
@@ -67,18 +69,17 @@ collections:
           - label: "Цена в евро"
             name: "priceEur"
             widget: "number"
+            required: false
             value_type: "float"
-            hint: "напр. 5.90"
 
           - label: "Цена в лева"
             name: "priceBgn"
             widget: "number"
             value_type: "float"
             required: false
-            hint: "Оставете празно, ако артикулът има цена само в евро."
 
           - label: "Бележка"
             name: "note"
             widget: "string"
             required: false
-            hint: 'напр. "люто" или "препоръчано"'
+            hint: 'напр. "люто", "препоръчано" или може да изредите какво съдържа ястието'

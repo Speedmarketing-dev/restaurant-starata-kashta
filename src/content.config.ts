@@ -16,9 +16,9 @@ const menu = defineCollection({
     categoryDate: z.string().optional(),
     items: z.array(
       z.object({
-        name: z.string(),
+        name: z.string().optional(),
         weight: z.string().optional(), // e.g. "200 гр."
-        priceEur: z.number(), // e.g. 5.90
+        priceEur: z.number().optional(), // e.g. 5.90
         priceBgn: z.number().optional(), // some items are EUR-only, e.g. "Леща-2.50Е"
         note: z.string().optional(), // e.g. "люто" / "препоръчано"
         // Optional section label shown ABOVE this item, e.g. "Нашето предложение

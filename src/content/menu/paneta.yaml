@@ -1,0 +1,26 @@
+categoryTitle: "Панета"
+items:
+  - name: "Кашкавал пане"
+    weight: "200 гр."
+    priceEur: 5.90
+    priceBgn: 11.54
+  - name: "Кашкавалени хапки пане"
+    weight: "200 гр."
+    priceEur: 5.90
+    priceBgn: 11.54
+  - name: "Сирене хапки пане"
+    weight: "200 гр."
+    priceEur: 5.90
+    priceBgn: 11.54
+  - name: "Панирани пилешки хапки"
+    weight: "200 гр."
+    priceEur: 5.90
+    priceBgn: 11.54
+  - name: 'Панирани пилешки хапки "Кентъки"'
+    weight: "200 гр."
+    priceEur: 5.10
+    priceBgn: 11.54
+  - name: "Панирани топени сиренца със сладко от боровинки"
+    weight: "200 гр."
+    priceEur: 6.50
+    priceBgn: 12.71
