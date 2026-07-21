@@ -1,13 +1,17 @@
 local_backend: true
 
 backend:
-  name: github
-  repo: YOUR_GITHUB_USERNAME/YOUR_REPO_NAME # e.g. staratakashta/staratakashta-site
-  branch: main # change if your default branch is different
-  base_url: https://YOUR-OAUTH-CLIENT-URL # URL of whichever OAuth client you deploy — see SETUP.md
-  auth_endpoint:
-    auth # route path the OAuth client exposes for the login step;
-    # adjust to match the specific client you choose (some use /auth, some /callback, etc. — check its README)
+  name: git-gateway
+  repo: Speedmarketing-dev/restaurant-starata-kashta
+  branch: main
+  identity_url: https://auth.decapbridge.com/sites/d41d582f-5fa1-457c-bbba-456046562b65
+  gateway_url: https://gateway.decapbridge.com
+
+# Better Decap + Bridge logo (optional)
+logo_url: https://decapbridge.com/decapcms-with-bridge.svg
+
+# Add site links in Decap CMS (optional)
+site_url: https://speedmarketing-dev.github.io
 
 # Files created/edited through the CMS are committed directly (no draft/review step).
 # Switch to editorial_workflow below if you'd rather changes open as a PR for review
