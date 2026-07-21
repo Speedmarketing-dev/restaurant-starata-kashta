@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Slideshow from "../components/Slideshow.astro";
-import { CONTACT_INFO } from "../utils/constants";
+import { BASE_URL, CONTACT_INFO } from "../utils/constants";
 
 const { phoneNumbers } = CONTACT_INFO;
 ---
@@ -53,95 +53,110 @@ const { phoneNumbers } = CONTACT_INFO;
       </div>
     </section>
 
-    <!-- Lower Content Cards (Match Original 3-Column Layout) -->
-    <section class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12" aria-label="Раздели и оферти">
+    <!-- Lower Content Cards (Rebuilt to Match Mockup) -->
+    <section
+      class="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-8 mb-12"
+      aria-label="Раздели и оферти"
+    >
       <!-- Box 1: Festive Offers -->
       <article
-        class="bg-[#2a0101]/95 text-stone-100 rounded-lg p-6 border border-[#540404] shadow-xl flex flex-col justify-between hover:border-amber-500/40 transition-colors duration-300"
+        class="bg-[#2a0101]/95 text-stone-100 rounded-xl overflow-hidden border border-[#3d1a1a] shadow-xl flex flex-col justify-between hover:border-amber-500/20 transition-all duration-300"
       >
         <div>
-          <h2
-            class="text-xl font-serif text-amber-500 mb-4 border-b border-white/10 pb-2 uppercase tracking-wider text-center"
-          >
-            Празнични оферти
-          </h2>
-          <figure class="mb-4 overflow-hidden rounded">
-            <!-- Replace src with your image paths -->
+          <!-- Top edge-to-edge figure wrapper -->
+          <div class="w-full h-48 overflow-hidden relative">
             <img
               src="https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg"
               alt="Празнични оферти в Старата Къща"
-              class="w-full h-40 object-cover hover:scale-105 transition-transform duration-300"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               loading="lazy"
             />
-          </figure>
-          <p class="text-sm text-stone-300 leading-relaxed text-center">
-            Приемаме заявки за Вашите рождени дни, кръщенета, годишнини и други празници!
-          </p>
+          </div>
+          <!-- Left-aligned content layout -->
+          <div class="p-6 grow">
+            <span
+              class="text-[10px] tracking-[0.25em] uppercase font-bold text-amber-500/80 mb-2 block"
+              >Тържества</span
+            >
+            <h2 class="text-xl font-serif text-white font-semibold mb-3">Празнични оферти</h2>
+            <p class="text-stone-300/80 text-sm leading-relaxed">
+              Приемаме заявки за Вашите рождени дни, кръщенета, годишнини и други празници.
+            </p>
+          </div>
         </div>
       </article>
 
       <!-- Box 2: About Us -->
       <article
-        class="bg-[#2a0101]/95 text-stone-100 rounded-lg p-6 border border-[#540404] shadow-xl flex flex-col justify-between hover:border-amber-500/40 transition-colors duration-300"
+        class="bg-[#2a0101]/95 text-stone-100 rounded-xl overflow-hidden border border-[#3d1a1a] shadow-xl flex flex-col justify-between hover:border-amber-500/20 transition-all duration-300"
       >
         <div>
-          <h2
-            class="text-xl font-serif text-amber-500 mb-4 border-b border-white/10 pb-2 uppercase tracking-wider text-center"
-          >
-            За нас
-          </h2>
-          <figure class="mb-4 overflow-hidden rounded">
+          <!-- Top edge-to-edge figure wrapper -->
+          <div class="w-full h-48 overflow-hidden relative">
             <img
               src="https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg"
-              alt="Снимка на бара"
-              class="w-full h-40 object-cover hover:scale-105 transition-transform duration-300"
+              alt="Снимка на интериора"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               loading="lazy"
             />
-          </figure>
-          <p class="text-sm text-stone-300 leading-relaxed text-center mb-6">
-            Ние предлагаме разнообразно меню, в това число и обедно, в което преобладава българска
-            кухня.
-          </p>
+          </div>
+          <!-- Left-aligned content layout -->
+          <div class="p-6">
+            <span
+              class="text-[10px] tracking-[0.25em] uppercase font-bold text-amber-500/80 mb-2 block"
+              >Кухня</span
+            >
+            <h2 class="text-xl font-serif text-white font-semibold mb-3">За нас</h2>
+            <p class="text-stone-300/80 text-sm leading-relaxed mb-6">
+              Разнообразно меню, включително и обедно, в което преобладава българската кухня.
+            </p>
+          </div>
         </div>
-        <div class="text-center mt-auto">
+        <!-- Centered pill-shaped action button at bottom -->
+        <div class="px-6 pb-6 mt-auto">
           <a
-            href="/menu"
-            class="inline-block bg-[#800000] hover:bg-[#a00000] text-white text-xs font-bold tracking-widest uppercase px-6 py-3 rounded shadow transition-all duration-200"
+            href=`${BASE_URL}menu`
+            class="w-full block text-center bg-[#8c0e0e] hover:bg-[#5c0606] text-white text-xs font-bold tracking-widest uppercase py-3.5 rounded-full transition-all duration-200"
           >
-            ОЧАКВАМЕ ВИ !
+            Разгледайте менюто
           </a>
         </div>
       </article>
 
       <!-- Box 3: Reservation Panel -->
       <article
-        class="bg-[#2a0101]/95 text-stone-100 rounded-lg p-6 border border-[#540404] shadow-xl flex flex-col justify-between hover:border-amber-500/40 transition-colors duration-300"
+        class="bg-[#2a0101]/95 text-stone-100 rounded-xl overflow-hidden border border-[#3d1a1a] shadow-xl flex flex-col justify-between hover:border-amber-500/20 transition-all duration-300"
       >
         <div>
-          <h2
-            class="text-xl font-serif text-amber-500 mb-4 border-b border-white/10 pb-2 uppercase tracking-wider text-center"
-          >
-            Направете резервация
-          </h2>
-          <figure class="mb-4 overflow-hidden rounded">
+          <!-- Top edge-to-edge figure wrapper -->
+          <div class="w-full h-48 overflow-hidden relative">
             <img
               src="https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg"
-              alt="Картина на Старата Къща"
-              class="w-full h-40 object-cover hover:scale-105 transition-transform duration-300"
+              alt="Градина на Старата Къща"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               loading="lazy"
             />
-          </figure>
-          <div class="text-sm text-stone-300 leading-relaxed text-center">
-            <p class="mb-2 font-medium">Свържете се с нас на телефони:</p>
-            <ul class="space-y-1 text-amber-400 font-mono font-medium">
+          </div>
+          <!-- Left-aligned content layout -->
+          <div class="p-6 grow">
+            <span
+              class="text-[10px] tracking-[0.25em] uppercase font-bold text-amber-500/80 mb-2 block"
+              >Контакт</span
+            >
+            <h2 class="text-xl font-serif text-white font-semibold mb-3">Направете резервация</h2>
+            <p class="text-stone-300/80 text-sm leading-relaxed mb-4">
+              Свържете се с нас на телефони:
+            </p>
+            <!-- Direct Block Amber Links -->
+            <ul class="space-y-2 mt-auto">
               {
                 phoneNumbers.map((phoneNumber) => (
                   <li>
                     <a
-                      href={`tel:${phoneNumber.replace(/\s+/g, "")}`}
-                      class="hover:underline hover:text-white transition-colors"
+                      href={`tel:${phoneNumber.replace(/\s/g, "")}`}
+                      class="text-amber-500 hover:text-white transition-colors font-mono font-medium text-sm md:text-base block"
                     >
-                      • {phoneNumber}
+                      {phoneNumber}
                     </a>
                   </li>
                 ))
