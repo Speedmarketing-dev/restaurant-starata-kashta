@@ -52,7 +52,10 @@ const menuCategories = [
             aria-label="Търсене на категория"
           />
           <span class="absolute right-5 top-1/2 -translate-y-1/2 text-[#8c0e0e]/60 text-base pointer-events-none" aria-hidden="true">
-            &#128269;
+            <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24">
+              <path d="M0 0h24v24H0z" fill="none" />
+              <path fill="currentColor" d="m19.6 21l-6.3-6.3q-.75.6-1.725.95T9.5 16q-2.725 0-4.612-1.888T3 9.5t1.888-4.612T9.5 3t4.613 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l6.3 6.3zM9.5 14q1.875 0 3.188-1.312T14 9.5t-1.312-3.187T9.5 5T6.313 6.313T5 9.5t1.313 3.188T9.5 14" />
+            </svg>
           </span>
         </div>
       </header>
@@ -95,9 +98,14 @@ const menuCategories = [
       </div>
 
       <!-- Search No Results State -->
-      <div id="no-results" class="hidden text-center py-16 text-stone-500">
-        <span class="text-4xl block mb-3" aria-hidden="true">&#127860;</span>
-        Няма открити категории по този критерий. Опитайте отново!
+      <div id="no-results" class="hidden flex flex-col items-center justify-center py-16 text-stone-700">
+        <span class="text-4xl mb-3 flex items-center justify-center" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path fill="currentColor" d="M8.1 13.34L3.91 9.16a4.01 4.01 0 0 1 0-5.66l7.02 7zm6.78-1.81L13.41 13l6.88 6.88l-1.41 1.41L12 14.41l-6.88 6.88l-1.41-1.41l9.76-9.76c-.71-1.53-.21-3.68 1.38-5.27c1.91-1.92 4.65-2.28 6.11-.82c1.47 1.47 1.11 4.21-.81 6.12c-1.59 1.59-3.74 2.09-5.27 1.38" />
+          </svg>
+        </span>
+        <span>Няма открити категории по този критерий. Опитайте отново!</span>
       </div>
 
     </section>

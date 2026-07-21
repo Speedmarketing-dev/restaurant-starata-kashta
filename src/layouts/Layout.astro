@@ -45,11 +45,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://staratak
     <meta property="og:description" content={description} />
     <meta property="og:image" content={new URL(ogImage, canonicalURL)} />
 
-    <!-- Cyrillic Friendly Fonts (Montserrat & Playfair Display) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700&family=Lora:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap"
       rel="stylesheet"
     />
 
@@ -94,7 +93,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://staratak
     </script>
   </head>
   <body
-    class="bg-linear-to-b from-[#4d0404] via-[#380202] to-[#260101] text-stone-800 font-sans antialiased flex flex-col min-h-screen relative"
+    class="bg-woven-texture text-stone-800 font-sans antialiased flex flex-col min-h-screen relative"
   >
     <!-- Sophisticated background pattern mimicking traditional damask fabric texture -->
     <div class="absolute inset-0 bg-repeat opacity-[0.03] pointer-events-none z-0"></div>
@@ -112,9 +111,19 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://staratak
   h2,
   h3,
   h4 {
-    font-family: "Merriweather", serif;
+    font-family: "Lora", serif;
   }
   body {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Fira Sans", sans-serif;
+  }
+  .bg-woven-texture {
+    background-color: #380202;
+    background-image:
+      radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0),
+      radial-gradient(rgba(0, 0, 0, 0.25) 1px, transparent 0);
+    background-size: 8px 8px;
+    background-position:
+      0 0,
+      4px 4px;
   }
 </style>

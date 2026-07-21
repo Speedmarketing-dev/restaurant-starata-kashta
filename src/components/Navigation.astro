@@ -15,7 +15,7 @@ const normalize = (path: string) => path.replace(/\/$/, "");
 ---
 
 <header
-  class="sticky top-0 z-40 w-full py-4 px-4 md:px-8 max-w-6xl mx-auto mb-4 bg-[#380202]/95 backdrop-blur-sm shadow-md rounded-b-md"
+  class="sticky top-0 z-40 w-full py-4 px-4 md:px-8 max-w-6xl mx-auto mb-4 bg-woven-texture opacity-95 backdrop-blur-sm rounded-b-md"
 >
   <div class="flex flex-row justify-between items-center pb-2 gap-2">
     <!-- Logo with authentic traditional title styling -->
@@ -71,41 +71,55 @@ const normalize = (path: string) => path.replace(/\/$/, "");
 <!-- Mobile sidebar: sliding panel -->
 <aside
   id="mobile-nav-sidebar"
-  class="mobile-nav-sidebar fixed top-0 left-0 h-full w-72 max-w-[80%] bg-[#2a0303] border-r border-white/10 z-50 flex flex-col md:hidden"
+  class="mobile-nav-sidebar fixed top-0 left-0 h-full w-80 max-w-[85%] bg-[#2a0101] border-r border-[#3d1a1a] z-50 flex flex-col justify-between p-6 md:hidden shadow-2xl"
   aria-label="Мобилна навигация"
 >
-  <div class="flex items-center justify-between px-5 py-5 border-b border-white/10">
-    <button
-      id="mobile-nav-close"
-      class="text-stone-300 hover:text-amber-400 p-1"
-      aria-label="Затвори навигацията"
-    >
-      <svg class="h-5 w-5 fill-current" viewBox="0 0 20 20">
-        <path
-          d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-        ></path>
-      </svg>
-    </button>
+  <div>
+    <!-- Top Header inside Drawer -->
+    <div class="flex items-center justify-between pb-6 border-b border-white/10 mb-6">
+      <div class="flex flex-col">
+        <a href=`${BASE_URL}` class="w-45">
+          <img src={`${BASE_URL}images/logo.png`} alt="Лого" />
+        </a>
+      </div>
+      <button
+        id="mobile-nav-close"
+        class="text-stone-300 hover:text-amber-400 p-2"
+        aria-label="Затвори навигацията"
+      >
+        <svg class="h-6 w-6 fill-current" viewBox="0 0 20 20">
+          <path
+            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+          ></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Navigation Links -->
+    <ul class="flex flex-col gap-2">
+      {
+        navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class={`text-sm tracking-widest uppercase transition-colors duration-200 py-3 px-4 rounded-lg block ${
+                normalize(currentPath) === normalize(item.href)
+                  ? "text-amber-400 font-bold bg-white/10"
+                  : "text-stone-200 hover:text-amber-400 hover:bg-white/5"
+              }`}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
   </div>
 
-  <ul class="flex flex-col gap-1 px-3 py-4">
-    {
-      navItems.map((item) => (
-        <li>
-          <a
-            href={item.href}
-            class={`text-sm tracking-widest uppercase transition-colors duration-200 py-3 px-3 rounded-md block ${
-              normalize(currentPath) === normalize(item.href)
-                ? "text-amber-400 font-semibold bg-white/5"
-                : "text-stone-200 hover:text-amber-400 hover:bg-white/5"
-            }`}
-          >
-            {item.label}
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+  <!-- Bottom Drawer Actions (Direct Contact Info for Phone Users) -->
+  <div class="pt-6 border-t border-white/10 space-y-4">
+    <p class="text-[11px] text-stone-400 text-center font-light">📍 кв. Редута, ул. Марагидик 21</p>
+  </div>
 </aside>
 
 <style>
