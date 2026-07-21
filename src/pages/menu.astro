@@ -14,14 +14,12 @@ const menuCategories = [
   { id: "specialties", slug: "specialiteti", title: "Специалитети", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" },
   { id: "side-dishes", slug: "garnituri", title: "Гарнитури", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" },
   { id: "desserts", slug: "deserti", title: "Десерти", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" },
-  { id: "draft-beer", slug: "nalivna-bira", title: "Наливна бира", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" },
   { id: "beer", slug: "bira", title: "Бира", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" },
   { id: "others", slug: "drugi", title: "Други", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" },
   { id: "rakia", slug: "rakia", title: "Ракии", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" },
   { id: "vodka", slug: "vodka", title: "Водка", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" },
   { id: "ouzo", slug: "ouzo", title: "Узо", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" },
   { id: "whiskey", slug: "whiskey", title: "Уиски", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" },
-  { id: "draft-wine", slug: "nalivni-vina", title: "Наливни вина", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" },
   { id: "wine", slug: "vina", title: "Вина", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" },
   { id: "lunch", slug: "obedno-menyu", title: "Обедно меню", img: "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg" }
 ];
@@ -30,7 +28,7 @@ const menuCategories = [
 <Layout title="Меню - Ресторант Старата къща">
   <main class="max-w-6xl w-full mx-auto px-4 md:px-8 py-4 grow">
 
-    <!-- Main Content Container: parchment card matching the site's rustic-tavern styling -->
+    <!-- Main Content Container -->
     <section class="bg-[#faf7f0] rounded-xl shadow-2xl p-6 md:p-12 border border-stone-200/50 mb-12 relative overflow-hidden">
 
       <!-- Decorative top accent bar -->
@@ -52,7 +50,7 @@ const menuCategories = [
             aria-label="Търсене на категория"
           />
           <span class="absolute right-5 top-1/2 -translate-y-1/2 text-[#8c0e0e]/60 text-base pointer-events-none" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1.25em" height="1.5em" viewBox="0 0 24 24">
               <path d="M0 0h24v24H0z" fill="none" />
               <path fill="currentColor" d="m19.6 21l-6.3-6.3q-.75.6-1.725.95T9.5 16q-2.725 0-4.612-1.888T3 9.5t1.888-4.612T9.5 3t4.613 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l6.3 6.3zM9.5 14q1.875 0 3.188-1.312T14 9.5t-1.312-3.187T9.5 5T6.313 6.313T5 9.5t1.313 3.188T9.5 14" />
             </svg>
@@ -60,17 +58,18 @@ const menuCategories = [
         </div>
       </header>
 
-      <div
-        id="categories-flex"
-        class="flex flex-wrap gap-5 md:gap-7"
+      <!-- Clean, Fully Responsive CSS Grid -->
+      <div 
+        id="categories-grid"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6"
       >
         {menuCategories.map((category) => (
           <a
             href={`${BASE_URL}menu/${category.slug}`}
-            class="menu-card group relative bg-white rounded-lg border border-stone-200/70 overflow-hidden shadow-sm block"
+            class="menu-card group relative bg-white rounded-lg border border-stone-200/70 overflow-hidden shadow-sm block w-full"
             data-title={category.title.toLowerCase()}
           >
-            <!-- Image Container (fixed aspect ratio so images can never blow up the layout) -->
+            <!-- Image Container (fixed aspect-4/3 so all cards are identical in height) -->
             <div class="relative w-full aspect-4/3 overflow-hidden bg-stone-100">
               <Image
                 src={category.img}
@@ -80,17 +79,17 @@ const menuCategories = [
                 width="400"
                 height="300"
               />
-              <!-- Overlay so title text stays readable regardless of the underlying image -->
+              <!-- Dark overlay for title text contrast -->
               <div class="absolute inset-0 bg-linear-to-t from-[#2a0303]/90 via-[#2a0303]/35 to-[#2a0303]/5"></div>
 
-              <!-- Title overlaid on the image, bottom-anchored -->
+              <!-- Bottom-anchored title -->
               <div class="absolute inset-x-0 bottom-0 p-3 md:p-4">
-                <h2 class="text-white font-serif font-bold text-sm md:text-lg tracking-wide drop-shadow-md">
+                <h2 class="text-white font-serif font-bold text-sm md:text-base tracking-wide drop-shadow-md">
                   {category.title}
                 </h2>
               </div>
 
-              <!-- Accent line, animates in on hover; lives inside the image so no space is left below it -->
+              <!-- Animated red hover accent line -->
               <div class="menu-card-accent absolute bottom-0 left-0 h-1 w-full bg-[#8c0e0e] origin-left scale-x-0"></div>
             </div>
           </a>
@@ -98,7 +97,7 @@ const menuCategories = [
       </div>
 
       <!-- Search No Results State -->
-      <div id="no-results" class="hidden flex flex-col items-center justify-center py-16 text-stone-700">
+      <div id="no-results" class="hidden flex-col items-center justify-center py-16 text-stone-700">
         <span class="text-4xl mb-3 flex items-center justify-center" aria-hidden="true">
           <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
             <path d="M0 0h24v24H0z" fill="none" />
@@ -113,46 +112,7 @@ const menuCategories = [
 </Layout>
 
 <style>
-  /* Flex layout for the category cards. One column on mobile, two on small screens, three on tablet, four on desktop. */
-  #categories-flex {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-    align-items: flex-start;
-  }
-
-  .menu-card {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-
-  @media (min-width: 480px) {
-    .menu-card {
-      flex-basis: calc(50% - 0.625rem);
-      max-width: calc(50% - 0.625rem);
-    }
-  }
-
-  @media (min-width: 768px) {
-    #categories-flex {
-      gap: 1.75rem;
-    }
-    .menu-card {
-      flex-basis: calc(33.333% - 1.167rem);
-      max-width: calc(33.333% - 1.167rem);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .menu-card {
-      flex-basis: calc(25% - 1.3125rem);
-      max-width: calc(25% - 1.3125rem);
-    }
-  }
-
-  /* Hover / focus animation for each category card.
-     Written as plain CSS (rather than relying purely on Tailwind's `group-hover`)
-     so the effect is guaranteed to work regardless of Tailwind version/config. */
+  /* Card hover and focus micro-interactions */
   .menu-card {
     transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
   }
@@ -160,7 +120,7 @@ const menuCategories = [
   .menu-card:hover,
   .menu-card:focus-visible {
     transform: translateY(-6px);
-    box-shadow: 0 18px 30px -12px rgba(92, 6, 6, 0.35);
+    box-shadow: 0 16px 28px -10px rgba(92, 6, 6, 0.35);
     border-color: rgba(140, 14, 14, 0.4);
   }
 
@@ -182,19 +142,16 @@ const menuCategories = [
     transform: scaleX(1);
   }
 
-  /* Smooth fade for the search filtering */
-  .menu-card {
-    opacity: 1;
-  }
+  /* Utility class for search filtering */
   .menu-card.hidden {
-    display: none;
+    display: none !important;
   }
 </style>
 
 <script>
-  // Simple, efficient vanilla javascript search matching Bulgarian characters
+  // Simple, efficient search matching Bulgarian characters
   const searchInput = document.getElementById('category-search') as HTMLInputElement;
-  const cards = document.querySelectorAll<HTMLElement>('#categories-flex a');
+  const cards = document.querySelectorAll<HTMLElement>('#categories-grid a');
   const noResults = document.getElementById('no-results');
 
   searchInput?.addEventListener('input', (e) => {
@@ -213,8 +170,10 @@ const menuCategories = [
 
     if (visibleCount === 0) {
       noResults?.classList.remove('hidden');
+      noResults?.classList.add('flex');
     } else {
       noResults?.classList.add('hidden');
+      noResults?.classList.remove('flex');
     }
   });
 </script>
