@@ -1,5 +1,5 @@
 ---
-import { CONTACT_INFO } from "../constants";
+import { CONTACT_INFO } from "../utils/constants";
 
 const currentYear = new Date().getFullYear();
 const { phoneNumbers, facebookUrl, address, mapsUrl } = CONTACT_INFO;
@@ -70,7 +70,9 @@ const { phoneNumbers, facebookUrl, address, mapsUrl } = CONTACT_INFO;
     <div class="mt-8 pt-6 border-t border-stone-200 text-center">
       <p class="text-xs md:text-sm text-[#5c0606] font-medium">
         &copy; {currentYear}
-        <a href="https://staratakashta-bg.com" class="hover:underline"> www.staratakashta-bg.com </a>
+        <a href="https://staratakashta-bg.com" class="hover:underline">
+          www.staratakashta-bg.com
+        </a>
         Всички права запазени.
       </p>
     </div>

@@ -1,44 +1,12 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
-import { BASE_URL } from "../constants";
+import { BASE_URL } from "../utils/constants";
 import Image from "astro/components/Image.astro";
+import { buildGalleryPhotos } from "../utils/gallery";
 
 const entriesRaw = await getCollection("gallery");
-
-// Each content entry is either a single photo ({ src, alt, ... }) or a group
-// of photos ({ images: [{ src, alt }, ...], ... }). Flatten both shapes into
-// one flat list of individual photos, since that's what the grid and
-// lightbox actually render. Photos from the same group keep that entry's
-// `order` (so the group sorts as a unit) and stay adjacent in the grid.
-const photos = entriesRaw.flatMap((entry) => {
-  const { data } = entry;
-  const shared = { order: data.order };
-
-  if ("images" in data) {
-    return data.images.map((photo, i) => ({
-      src: photo.src,
-      alt: photo.alt,
-      ...shared,
-      // Keep entries from the same group stably adjacent even if `order` ties
-      groupKey: entry.id,
-      groupIndex: i,
-    }));
-  }
-
-  return [{ src: data.src, alt: data.alt, ...shared, groupKey: entry.id, groupIndex: 0 }];
-});
-
-// Sort by the optional `order` field; entries without one fall to the end, in
-// filename (id) order. Within a tie, keep photos from the same group together
-// and in their original array order.
-photos.sort((a, b) => {
-  const orderA = a.order ?? Number.MAX_SAFE_INTEGER;
-  const orderB = b.order ?? Number.MAX_SAFE_INTEGER;
-  if (orderA !== orderB) return orderA - orderB;
-  if (a.groupKey !== b.groupKey) return a.groupKey.localeCompare(b.groupKey);
-  return a.groupIndex - b.groupIndex;
-});
+const photos = buildGalleryPhotos(entriesRaw);
 
 // Pagination: how many photos show per page of the grid. The lightbox still
 // lets visitors arrow through every photo regardless of page.
@@ -189,7 +157,7 @@ const PAGE_SIZE = 12;
   }
 </style>
 
-<script is:inline define:vars={{ lightboxPhotos: photos.map((p) => ({ src: p.src, alt: p.alt })), pageSize: PAGE_SIZE }}>
+<script is:inline define:vars={{ lightboxPhotos: photos.map((p) => ({ src: `${BASE_URL}${p.src}`, alt: p.alt })), pageSize: PAGE_SIZE }}>
   const grid = document.getElementById("gallery-grid");
   const gallerySection = document.getElementById("gallery-section");
   const lightbox = document.getElementById("lightbox");

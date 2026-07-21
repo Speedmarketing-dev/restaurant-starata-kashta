@@ -1,23 +1,22 @@
 ---
-const slides = [
-  "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-2.jpg",
-  "https://staratakashta-bg.com/modules/mod_btslideshow/images/98/slideshow/starata-kashta-pic-1.jpg", // Add more image URLs here
-];
+import { getCollection } from "astro:content";
+import { buildGalleryPhotos } from "../utils/gallery";
+import { BASE_URL } from "../utils/constants";
+
+const entriesRaw = await getCollection("gallery");
+const photos = buildGalleryPhotos(entriesRaw);
 ---
 
 <div
-  class="relative w-full h-[300px] md:h-full min-h-[320px] overflow-hidden rounded shadow-lg border border-stone-200/40"
+  class="relative w-full h-[300px] md:h-full min-h-[320px] overflow-hidden rounded-xl shadow-lg"
   id="slideshow-container"
 >
   {
-    slides.map((src, index) => (
-      <div
-        class={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === 0 ? "opacity-100" : "opacity-0"}`}
-        data-slide-index={index}
-      >
+    photos.map((photo, index) => (
+      <div class={`slide-wrapper ${index === 0 ? "active" : ""}`} data-slide-index={index}>
         <img
-          src={src}
-          alt="Снимка от градината на Старата къща"
+          src=`${BASE_URL}${photo.src}`
+          alt={photo.alt}
           class="w-full h-full object-cover"
           loading={index === 0 ? "eager" : "lazy"}
         />
@@ -25,26 +24,80 @@ const slides = [
     ))
   }
 
-  <!-- Subtle dark overlay on bottom for depth -->
+  <!-- Subtle dark overlay on bottom for depth and typography contrast -->
   <div
-    class="absolute bottom-0 inset-x-0 h-1/4 bg-gradient-to-t from-black/50 to-transparent pointer-events-none"
+    class="absolute bottom-0 inset-x-0 h-1/4 bg-linear-to-t from-black/40 to-transparent pointer-events-none z-20"
   >
   </div>
 </div>
 
+<style>
+  /* Base state for all slide containers */
+  .slide-wrapper {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    z-index: 0;
+    transition:
+      transform 1.4s cubic-bezier(0.25, 1, 0.5, 1),
+      opacity 1.2s ease-in-out;
+  }
+
+  /* Active class state */
+  .slide-wrapper.active {
+    opacity: 1;
+    z-index: 10;
+    transform: translate(0) scale(1) !important; /* forces active slides to sit at neutral coordinates */
+  }
+
+  /* Effect 1: Ken Burns subtle scale zoom out */
+  .effect-zoom {
+    transform: scale(1.08);
+  }
+
+  /* Effect 2: Elegant Slide-In from the Right */
+  .effect-slide-left {
+    transform: translateX(100%);
+  }
+
+  /* Effect 3: Soft Slide-Up and fade */
+  .effect-slide-up {
+    transform: translateY(40px);
+  }
+</style>
+
 <script>
-  const slides = document.querySelectorAll("#slideshow-container [data-slide-index]");
+  const slides = document.querySelectorAll(
+    "#slideshow-container [data-slide-index]",
+  ) as NodeListOf<HTMLElement>;
+
+  // Array of rotating visual entry animations
+  const effects = ["effect-zoom", "effect-slide-left", "effect-slide-up"];
   let current = 0;
 
   if (slides.length > 1) {
-    setInterval(() => {
-      slides[current].classList.remove("opacity-100");
-      slides[current].classList.add("opacity-0");
+    // Set initial animation type on the first active slide
+    slides[0].classList.add("effect-zoom", "active");
 
+    setInterval(() => {
+      const prevIndex = current;
       current = (current + 1) % slides.length;
 
-      slides[current].classList.remove("opacity-0");
-      slides[current].classList.add("opacity-100");
-    }, 5000); // Transitions every 5 seconds
+      const currentSlide = slides[prevIndex];
+      const nextSlide = slides[current];
+
+      // Dynamically select the next entry animation from the index loop
+      const nextEffect = effects[current % effects.length];
+
+      // 1. Reset class states of the upcoming slide to trigger its transition starting frame
+      nextSlide.className = `slide-wrapper ${nextEffect}`;
+
+      // 2. Force browser repaint/reflow so CSS registers the transition starting point
+      void nextSlide.offsetWidth;
+
+      // 3. Complete swap to execute transitions
+      currentSlide.classList.remove("active");
+      nextSlide.classList.add("active");
+    }, 5500); // Cycles animations every 5.5 seconds
   }
 </script>
