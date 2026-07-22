@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Point crawler directly to sitemap
+Sitemap: https://staratakashta-bg.com/sitemap-index.xml

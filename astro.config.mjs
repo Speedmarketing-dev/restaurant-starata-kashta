@@ -1,6 +1,6 @@
 // @ts-check
 import { defineConfig } from "astro/config";
-
+import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 
 // @ts-ignore
@@ -13,6 +13,8 @@ export default defineConfig({
 
   // 2. Set the exact name of your GitHub repository (with leading slash)
   base: isGithubActions ? "/restaurant-starata-kashta/" : "/",
+
+  integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],
   },

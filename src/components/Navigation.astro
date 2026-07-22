@@ -15,12 +15,15 @@ const normalize = (path: string) => path.replace(/\/$/, "");
 ---
 
 <header
-  class="sticky top-0 z-40 w-full py-4 px-4 md:px-8 max-w-6xl mx-auto mb-4 bg-woven-texture opacity-95 backdrop-blur-sm rounded-b-md"
+  class="sticky top-0 z-40 w-full p-4 max-w-6xl mx-auto mb-4 bg-woven-texture opacity-95 backdrop-blur-sm rounded-b-md"
 >
-  <div class="flex flex-row justify-between items-center pb-2 gap-2">
+  <div class="flex justify-between items-center gap-2">
     <!-- Logo with authentic traditional title styling -->
-    <a href=`${BASE_URL}` class="text-center md:text-left">
-      <img src={`${BASE_URL}images/logo.png`} alt="Лого" />
+    <a href=`${BASE_URL}` class="w-45">
+      <img
+        src={`${BASE_URL}images/logo.svg`}
+        alt="Лого на ресторант Старата къща в гр. София, кв. Редута"
+      />
     </a>
 
     <!-- Navigation Bar -->
@@ -79,7 +82,10 @@ const normalize = (path: string) => path.replace(/\/$/, "");
     <div class="flex items-center justify-between pb-6 border-b border-white/10 mb-6">
       <div class="flex flex-col">
         <a href=`${BASE_URL}` class="w-45">
-          <img src={`${BASE_URL}images/logo.png`} alt="Лого" />
+          <img
+            src={`${BASE_URL}images/logo.svg`}
+            alt="Лого на ресторант Старата къща в гр. София, кв. Редута"
+          />
         </a>
       </div>
       <button
