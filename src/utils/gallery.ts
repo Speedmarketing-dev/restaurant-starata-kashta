@@ -13,7 +13,7 @@ export type GalleryEntryLike = {
     order?: number;
     src?: string;
     alt?: string;
-    images?: Array<{ src: string; alt: string }>;
+    images?: Array<{ src: string; alt?: string }>;
   };
 };
 
@@ -24,11 +24,11 @@ export function buildGalleryPhotos(entries: GalleryEntryLike[]): GalleryPhoto[] 
 
     if (Array.isArray(data.images)) {
       return data.images.map((photo, i) => {
-        // Strip any leading slash so it combines properly with BASE_URL
         const cleanSrc = photo.src.replace(/^\//, "");
         return {
           src: cleanSrc,
-          alt: photo.alt,
+          // Provide fallback if alt was omitted in Decap CMS
+          alt: photo.alt || "Снимка от ресторант Старата къща",
           ...shared,
           groupKey: entry.id,
           groupIndex: i,
@@ -42,7 +42,7 @@ export function buildGalleryPhotos(entries: GalleryEntryLike[]): GalleryPhoto[] 
     return [
       {
         src: cleanSrc,
-        alt: data.alt ?? "",
+        alt: data.alt || "Снимка от ресторант Старата къща",
         ...shared,
         groupKey: entry.id,
         groupIndex: 0,

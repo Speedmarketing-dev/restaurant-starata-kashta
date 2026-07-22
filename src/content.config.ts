@@ -30,39 +30,19 @@ const menu = defineCollection({
   }),
 });
 
-// A single photo's data — reused for both the single-image shape and each
-// entry inside the multi-image `images` array below.
 const galleryPhoto = z.object({
-  src: z.string(), // path or URL to the image
-  alt: z.string(), // accessible description, also used as a caption
+  src: z.string(),
+  alt: z.string().optional(),
 });
 
 const gallery = defineCollection({
-  // Same pattern as `menu`: one data file per gallery entry. This keeps every
-  // photo's metadata (src, alt text, category) editable as plain data — no
-  // code changes, and it slots straight into Decap CMS the same way the menu
-  // collection does.
-  //
-  // Each file can describe EITHER a single photo (`src` + `alt` at the top
-  // level — the original shape, still fully supported) OR a group of photos
-  // that share one category/order (an `images` array of { src, alt }). Use
-  // the array form when several shots belong together, e.g. one YAML file
-  // per event or room with multiple photos, instead of duplicating
-  // `category`/`order` across many files.
   loader: glob({ pattern: "**/*.{yaml,yml,json}", base: "./src/content/gallery" }),
   schema: z
     .object({
-      category: z.string().optional(), // e.g. "Интериор", "Градина", "Ястия" — for future filtering
-      order: z.number().optional(), // lower numbers show first; falls back to filename order
+      category: z.string().optional(),
+      order: z.number().optional(),
     })
-    .and(
-      z.union([
-        // Single-image shape (original): src/alt live at the top level.
-        galleryPhoto,
-        // Multi-image shape: a group of photos under one entry.
-        z.object({ images: z.array(galleryPhoto).min(1) }),
-      ]),
-    ),
+    .and(z.union([galleryPhoto, z.object({ images: z.array(galleryPhoto).min(1) })])),
 });
 
 export const collections = { menu, gallery };
