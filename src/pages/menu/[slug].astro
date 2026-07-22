@@ -20,9 +20,82 @@ const { categoryTitle, categoryDate, items } = entry.data;
 
 // Formats a number as "5.90" style (always 2 decimals) regardless of how it's stored in the data file
 const fmt = (n: number) => n.toFixed(2);
+
+// --- Build schema.org Menu / MenuSection / MenuItem structured data --------
+// Groups items exactly the way they're already grouped visually: a
+// `subheading` starts a new named section; items without one belong to
+// whatever section (named or not) came before them. Items before the first
+// subheading (if any) become "loose" hasMenuItem entries directly on the
+// Menu — matching pages like Обедно меню, which start with un-sectioned
+// items before "Нашето предложение", "Риба", "Скара" begin.
+type MenuItemSchema = {
+  "@type": "MenuItem";
+  name: string;
+  description?: string;
+  offers?: {
+    "@type": "Offer";
+    price: string;
+    priceCurrency: string;
+  };
+};
+
+function toMenuItemSchema(item: (typeof items)[number]): MenuItemSchema | null {
+  if (!item.name) return null;
+  const schema: MenuItemSchema = {
+    "@type": "MenuItem",
+    name: item.name,
+  };
+
+  if (item.weight) schema.description = item.weight;
+
+  const descParts = [item.weight, item.note].filter(Boolean);
+
+  if (descParts.length > 0) {
+    schema.description = descParts.join(" — ");
+  }
+
+  if (item.priceEur !== undefined && item.priceEur !== null) {
+    schema.offers = {
+      "@type": "Offer",
+      price: fmt(item.priceEur),
+      priceCurrency: "EUR",
+    };
+  }
+  return schema;
+}
+
+const looseItems: MenuItemSchema[] = [];
+const sections: { "@type": "MenuSection"; name: string; hasMenuItem: MenuItemSchema[] }[] = [];
+
+for (const item of items ?? []) {
+  const schema = toMenuItemSchema(item);
+  if (!schema) continue;
+
+  if (item.subheading) {
+    sections.push({ "@type": "MenuSection", name: item.subheading, hasMenuItem: [schema] });
+  } else if (sections.length > 0) {
+    sections[sections.length - 1].hasMenuItem.push(schema);
+  } else {
+    looseItems.push(schema);
+  }
+}
+
+const hasStructuredMenu = looseItems.length > 0 || sections.length > 0;
+
+const menuSchema = hasStructuredMenu
+  ? {
+      "@context": "https://schema.org",
+      "@type": "Menu",
+      name: categoryTitle,
+      url: new URL(Astro.url.pathname, Astro.site || "https://staratakashta-bg.com").toString(),
+      ...(looseItems.length > 0 && { hasMenuItem: looseItems }),
+      ...(sections.length > 0 && { hasMenuSection: sections }),
+    }
+  : null;
 ---
 
 <Layout title={`${categoryTitle} - Ресторант Старата къща`}>
+  {menuSchema && <script type="application/ld+json" set:html={JSON.stringify(menuSchema)} />}
   <main class="max-w-4xl w-full mx-auto px-4 md:px-8 py-10 md:py-14 grow">
     <section
       class="bg-[#faf7f0] rounded-xl shadow-2xl p-6 md:p-12 border border-stone-200/50 mb-12 relative overflow-hidden"
