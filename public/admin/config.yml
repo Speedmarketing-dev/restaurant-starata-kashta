@@ -7,20 +7,19 @@ backend:
   identity_url: https://auth.decapbridge.com/sites/d41d582f-5fa1-457c-bbba-456046562b65
   gateway_url: https://gateway.decapbridge.com
 
-# Better Decap + Bridge logo (optional)
+# Decap + Bridge logo
 logo_url: https://decapbridge.com/decapcms-with-bridge.svg
 
-# Files created/edited through the CMS are committed directly (no draft/review step).
-# Switch to editorial_workflow below if you'd rather changes open as a PR for review
 publish_mode: simple
 
-# Not used by this collection (no images in the menu items yet), but required by Decap.
-media_folder: "public/images/uploads"
-public_folder: "/images/uploads"
+# Default upload locations
+media_folder: "/public/images/uploads"
+public_folder: "images/uploads"
 
 locale: "bg"
 
 collections:
+  # --- 1. MENU COLLECTION ---
   - name: "menu"
     label: "Меню"
     label_singular: "Категория меню"
@@ -28,7 +27,6 @@ collections:
     delete: true
     extension: "yaml"
     format: "yaml"
-    # The filename (without extension) becomes the URL slug, e.g. "predyastiya" -> /menu/predyastiya
     slug: "{{slug}}"
     identifier_field: categoryTitle
     fields:
@@ -58,7 +56,7 @@ collections:
             name: "subheading"
             widget: "string"
             required: false
-            hint: 'Поставете тук заглавие напр. "Скара", "Риба" или "Нашето предложение". Оставете празно за всички следващи артикули от същия раздел.'
+            hint: 'Поставете тук заглавие напр. "Скара", "Риба" или "Нашето предложение".'
 
           - label: "Грамаж"
             name: "weight"
@@ -82,4 +80,48 @@ collections:
             name: "note"
             widget: "string"
             required: false
-            hint: 'напр. "люто", "препоръчано" или може да изредите какво съдържа ястието'
+            hint: 'напр. "люто", "препоръчано" или списък със съставки'
+
+  # --- 2. GALLERY COLLECTION ---
+  - name: "gallery"
+    label: "Галерия"
+    label_singular: "Албум със снимки"
+    folder: "src/content/gallery"
+    create: true
+    delete: true
+    extension: "yaml"
+    format: "yaml"
+    slug: "{{slug}}"
+    identifier_field: category
+    media_folder: "/public/images/gallery"
+    public_folder: "images/gallery"
+    fields:
+      - label: "Име на категорията"
+        name: "category"
+        widget: "string"
+        hint: 'напр. "Екстериор", "Интериор", "Ястия"'
+
+      - label: "Подредба (номер)"
+        name: "order"
+        widget: "number"
+        required: false
+        value_type: "int"
+        default: 1
+        hint: "По-малките числа показват албумите първи (напр. 1 за Екстериор, 2 за Интериор)"
+
+      - label: "Снимки"
+        name: "images"
+        widget: "list"
+        required: false
+        summary: "{{fields.alt}}"
+        fields:
+          - label: "Файл със снимка"
+            name: "src"
+            widget: "image"
+            hint: "Качете изображение"
+
+          - label: "Описание на снимката"
+            name: "alt"
+            widget: "string"
+            required: false
+            hint: "Кратко описание на снимката"

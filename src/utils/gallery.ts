@@ -22,18 +22,25 @@ export function buildGalleryPhotos(entries: GalleryEntryLike[]): GalleryPhoto[] 
     const shared = { order: data.order };
 
     if (Array.isArray(data.images)) {
-      return data.images.map((photo, i) => ({
-        src: photo.src,
-        alt: photo.alt,
-        ...shared,
-        groupKey: entry.id,
-        groupIndex: i,
-      }));
+      return data.images.map((photo, i) => {
+        // Strip leading slash if present so it joins cleanly with BASE_URL
+        const normalizedSrc = photo.src.startsWith("/") ? photo.src.slice(1) : photo.src;
+        return {
+          src: normalizedSrc,
+          alt: photo.alt,
+          ...shared,
+          groupKey: entry.id,
+          groupIndex: i,
+        };
+      });
     }
+
+    const rawSrc = data.src ?? "";
+    const normalizedSrc = rawSrc.startsWith("/") ? rawSrc.slice(1) : rawSrc;
 
     return [
       {
-        src: data.src ?? "",
+        src: normalizedSrc,
         alt: data.alt ?? "",
         ...shared,
         groupKey: entry.id,
