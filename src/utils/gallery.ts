@@ -1,3 +1,4 @@
+// src/utils/gallery.ts
 export type GalleryPhoto = {
   src: string;
   alt: string;
@@ -23,10 +24,10 @@ export function buildGalleryPhotos(entries: GalleryEntryLike[]): GalleryPhoto[] 
 
     if (Array.isArray(data.images)) {
       return data.images.map((photo, i) => {
-        // Strip leading slash if present so it joins cleanly with BASE_URL
-        const normalizedSrc = photo.src.startsWith("/") ? photo.src.slice(1) : photo.src;
+        // Strip any leading slash so it combines properly with BASE_URL
+        const cleanSrc = photo.src.replace(/^\//, "");
         return {
-          src: normalizedSrc,
+          src: cleanSrc,
           alt: photo.alt,
           ...shared,
           groupKey: entry.id,
@@ -36,11 +37,11 @@ export function buildGalleryPhotos(entries: GalleryEntryLike[]): GalleryPhoto[] 
     }
 
     const rawSrc = data.src ?? "";
-    const normalizedSrc = rawSrc.startsWith("/") ? rawSrc.slice(1) : rawSrc;
+    const cleanSrc = rawSrc.replace(/^\//, "");
 
     return [
       {
-        src: normalizedSrc,
+        src: cleanSrc,
         alt: data.alt ?? "",
         ...shared,
         groupKey: entry.id,
