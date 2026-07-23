@@ -1,1 +1,166 @@
 @import "tailwindcss";
+
+@theme {
+  --font-serif: "Lora", serif;
+  --font-sans: "Fira Sans", sans-serif;
+
+  /* Color Palette Tokens */
+  --color-tavern-bg: #220303;
+  --color-tavern-card: #2c0505;
+  --color-tavern-border: #4d0e0e;
+  --color-tavern-border-light: #6e1616;
+
+  --color-parchment: #faf5eb;
+  --color-parchment-dark: #f0e6d2;
+  --color-parchment-border: #e2d4b7;
+
+  --color-burgundy-deep: #4a0808;
+  --color-burgundy-brand: #8c0e0e;
+  --color-burgundy-hover: #6b0a0a;
+
+  --color-gold-amber: #d97706;
+  --color-gold-light: #f59e0b;
+  --color-gold-hover: #fbbf24;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif), "Lora", Georgia, serif;
+}
+
+body {
+  font-family: var(--font-sans), "Fira Sans", system-ui, sans-serif;
+  background-color: var(--color-tavern-bg);
+  color: #f3f4f6;
+}
+
+/* Texture Pattern for Traditional Bulgarian Tavern Feel */
+.bg-woven-texture {
+  background-color: #220303;
+  background-image:
+    radial-gradient(rgba(245, 158, 11, 0.05) 1px, transparent 0),
+    radial-gradient(rgba(0, 0, 0, 0.4) 1px, transparent 0);
+  background-size: 10px 10px;
+  background-position:
+    0 0,
+    5px 5px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #180202;
+}
+::-webkit-scrollbar-thumb {
+  background: #4d0e0e;
+  border-radius: 5px;
+  border: 2px solid #180202;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8c0e0e;
+}
+
+/* Shared Button Design System */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #8c0e0e;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.875rem 1.75rem;
+  border-radius: 9999px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(140, 14, 14, 0.4);
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background-color: #6b0a0a;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(140, 14, 14, 0.6);
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #f59e0b;
+  color: #1a0303;
+  font-weight: 700;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.875rem 1.75rem;
+  border-radius: 9999px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
+  text-decoration: none;
+}
+
+.btn-gold:hover {
+  background-color: #fbbf24;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
+}
+
+.btn-outline-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid #d97706;
+  color: #f59e0b;
+  font-weight: 600;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.875rem 1.75rem;
+  border-radius: 9999px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.btn-outline-gold:hover {
+  background-color: rgba(245, 158, 11, 0.12);
+  border-color: #f59e0b;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* Card Tokens */
+.card-parchment {
+  background-color: #faf5eb;
+  border: 1px solid #e2d4b7;
+  border-radius: 1rem;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+}
+
+.card-tavern-dark {
+  background-color: #2c0505;
+  border: 1px solid #4d0e0e;
+  border-radius: 1rem;
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-tavern-dark:hover {
+  border-color: rgba(245, 158, 11, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 36px -10px rgba(0, 0, 0, 0.75);
+}

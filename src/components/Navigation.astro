@@ -10,53 +10,57 @@ const navItems = [
   { href: `${BASE_URL}contacts`, label: "Контакти" },
 ];
 
-// Helper function to strip trailing slashes for reliable matching
 const normalize = (path: string) => path.replace(/\/$/, "");
 ---
 
 <header
-  class="sticky top-0 z-40 w-full px-8 py-4 max-w-6xl mx-auto mb-4 bg-woven-texture opacity-95 backdrop-blur-sm rounded-b-md"
+  class="sticky top-0 z-40 w-full px-4 sm:px-8 py-3.5 bg-[#1c0202]/90 backdrop-blur-md border-b border-[#3d0d0d] shadow-lg mb-6"
 >
-  <div class="flex justify-between items-center gap-2">
-    <!-- Logo with authentic traditional title styling -->
-    <a href=`${BASE_URL}` class="w-45">
+  <div class="max-w-6xl mx-auto flex justify-between items-center gap-4">
+    <!-- Logo -->
+    <a href={`${BASE_URL}`} class="flex items-center gap-3 group shrink-0">
       <img
         src={`${BASE_URL}images/logo.svg`}
         alt="Лого на ресторант Старата къща в гр. София, кв. Редута"
+        class="h-10 sm:h-12 w-auto transition-transform duration-300 group-hover:scale-105"
       />
     </a>
 
     <!-- Navigation Bar -->
     <nav aria-label="Основна навигация">
-      <!-- Mobile menu toggle (opens the sidebar) -->
+      <!-- Mobile menu toggle -->
       <button
         id="mobile-nav-toggle"
-        class="md:hidden flex items-center px-4 py-2 border border-white/20 rounded text-stone-200 hover:text-white"
+        class="md:hidden flex items-center justify-center p-2 rounded-lg border border-tavern-border bg-[#2a0505] text-stone-200 hover:text-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-500/50"
         aria-expanded="false"
         aria-controls="mobile-nav-sidebar"
+        aria-label="Отвори навигацията"
       >
-        <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20"
-          ><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path></svg
-        >
+        <svg class="h-5 w-5 fill-current" viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+        </svg>
       </button>
 
       <!-- Desktop Nav Links -->
-      <ul class="hidden md:flex flex-row items-center gap-8">
+      <ul class="hidden md:flex flex-row items-center gap-1 lg:gap-2">
         {
-          navItems.map((item) => (
-            <li>
-              <a
-                href={item.href}
-                class={`text-sm tracking-widest uppercase transition-all duration-200 py-2 px-1 block ${
-                  normalize(currentPath) === normalize(item.href)
-                    ? "text-amber-400 font-semibold border-b-2 border-amber-500"
-                    : "text-stone-200 hover:text-amber-400"
-                }`}
-              >
-                {item.label}
-              </a>
-            </li>
-          ))
+          navItems.map((item) => {
+            const isActive = normalize(currentPath) === normalize(item.href);
+            return (
+              <li>
+                <a
+                  href={item.href}
+                  class={`text-xs lg:text-sm font-semibold tracking-widest uppercase transition-all duration-200 py-2 px-3 sm:px-4 rounded-full inline-block ${
+                    isActive
+                      ? "text-amber-400 bg-amber-500/10 border border-amber-500/30"
+                      : "text-stone-300 hover:text-amber-400 hover:bg-white/5"
+                  }`}
+                >
+                  {item.label}
+                </a>
+              </li>
+            );
+          })
         }
       </ul>
     </nav>
@@ -66,7 +70,7 @@ const normalize = (path: string) => path.replace(/\/$/, "");
 <!-- Mobile sidebar: backdrop -->
 <div
   id="mobile-nav-backdrop"
-  class="mobile-nav-backdrop fixed inset-0 bg-black/60 z-40 opacity-0 pointer-events-none md:hidden"
+  class="mobile-nav-backdrop fixed inset-0 bg-black/75 z-40 opacity-0 pointer-events-none md:hidden backdrop-blur-xs"
   aria-hidden="true"
 >
 </div>
@@ -74,26 +78,25 @@ const normalize = (path: string) => path.replace(/\/$/, "");
 <!-- Mobile sidebar: sliding panel -->
 <aside
   id="mobile-nav-sidebar"
-  class="mobile-nav-sidebar fixed top-0 left-0 h-full w-80 max-w-[85%] bg-[#2a0101] border-r border-[#3d1a1a] z-50 flex flex-col justify-between p-6 md:hidden shadow-2xl"
+  class="mobile-nav-sidebar fixed top-0 left-0 h-full w-80 max-w-[85%] bg-[#1a0202] border-r border-[#3d0d0d] z-50 flex flex-col justify-between p-6 md:hidden shadow-2xl"
   aria-label="Мобилна навигация"
 >
   <div>
     <!-- Top Header inside Drawer -->
-    <div class="flex items-center justify-between pb-6 border-b border-white/10 mb-6">
-      <div class="flex flex-col">
-        <a href=`${BASE_URL}` class="w-45">
-          <img
-            src={`${BASE_URL}images/logo.svg`}
-            alt="Лого на ресторант Старата къща в гр. София, кв. Редута"
-          />
-        </a>
-      </div>
+    <div class="flex items-center justify-between pb-6 border-b border-[#3d0d0d] mb-6">
+      <a href={`${BASE_URL}`} class="w-36">
+        <img
+          src={`${BASE_URL}images/logo.svg`}
+          alt="Лого на ресторант Старата къща"
+          class="h-9 w-auto"
+        />
+      </a>
       <button
         id="mobile-nav-close"
-        class="text-stone-300 hover:text-amber-400 p-2"
+        class="text-stone-300 hover:text-amber-400 p-2 rounded-lg hover:bg-white/5"
         aria-label="Затвори навигацията"
       >
-        <svg class="h-6 w-6 fill-current" viewBox="0 0 20 20">
+        <svg class="h-6 w-6 fill-current" viewBox="0 0 20 20" aria-hidden="true">
           <path
             d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
           ></path>
@@ -104,46 +107,64 @@ const normalize = (path: string) => path.replace(/\/$/, "");
     <!-- Navigation Links -->
     <ul class="flex flex-col gap-2">
       {
-        navItems.map((item) => (
-          <li>
-            <a
-              href={item.href}
-              class={`text-sm tracking-widest uppercase transition-colors duration-200 py-3 px-4 rounded-lg block ${
-                normalize(currentPath) === normalize(item.href)
-                  ? "text-amber-400 font-bold bg-white/10"
-                  : "text-stone-200 hover:text-amber-400 hover:bg-white/5"
-              }`}
-            >
-              {item.label}
-            </a>
-          </li>
-        ))
+        navItems.map((item) => {
+          const isActive = normalize(currentPath) === normalize(item.href);
+          return (
+            <li>
+              <a
+                href={item.href}
+                class={`text-sm font-semibold tracking-widest uppercase transition-colors duration-200 py-3 px-4 rounded-xl block ${
+                  isActive
+                    ? "text-amber-400 font-bold bg-amber-500/15 border border-amber-500/30"
+                    : "text-stone-200 hover:text-amber-400 hover:bg-white/5"
+                }`}
+              >
+                {item.label}
+              </a>
+            </li>
+          );
+        })
       }
     </ul>
   </div>
 
-  <!-- Bottom Drawer Actions (Direct Contact Info for Phone Users) -->
-  <div class="flex justify-center gap-2 pt-6 border-t border-white/10 space-y-4">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="1em"
-      height="1em"
-      viewBox="0 0 24 24"
-      class="text-stone-400"
-      fill="currentColor"
+  <!-- Bottom Drawer Quick Info -->
+  <div class="pt-6 border-t border-[#3d0d0d] space-y-3">
+    <div class="flex items-center gap-2 text-stone-400 text-xs">
+      <svg
+        class="w-4 h-4 text-amber-500 shrink-0 fill-current"
+        viewBox="0 0 20 20"
+        aria-hidden="true"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+          clip-rule="evenodd"></path>
+      </svg>
+      <span>кв. Редута, ул. Марагидик 21</span>
+    </div>
+    <a
+      href="tel:+359893805905"
+      class="flex items-center gap-2 text-amber-400 font-mono font-medium text-xs hover:underline"
     >
-      <path d="M0 0h24v24H0z" fill="none"></path>
-      <path fill="currentColor" d="M16 12V4h1V2H7v2h1v8l-2 2v2h5.2v6h1.6v-6H18v-2z"></path>
-    </svg>
-    <p class="text-[11px] text-stone-400 text-center font-light">кв. Редута, ул. Марагидик 21</p>
+      <svg
+        class="w-4 h-4 text-amber-500 shrink-0 fill-current"
+        viewBox="0 0 20 20"
+        aria-hidden="true"
+      >
+        <path
+          d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"
+        ></path>
+      </svg>
+      <span>+359 89 380 5905</span>
+    </a>
   </div>
 </aside>
 
 <style>
-  /* Off-canvas sidebar: hidden off the left edge by default, slides in when open. */
   .mobile-nav-sidebar {
     transform: translateX(-100%);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease-out;
   }
 
   .mobile-nav-sidebar.is-open {
@@ -151,7 +172,7 @@ const normalize = (path: string) => path.replace(/\/$/, "");
   }
 
   .mobile-nav-backdrop {
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease-out;
   }
 
   .mobile-nav-backdrop.is-open {
@@ -184,12 +205,10 @@ const normalize = (path: string) => path.replace(/\/$/, "");
   closeBtn?.addEventListener("click", closeNav);
   backdrop?.addEventListener("click", closeNav);
 
-  // Close on Escape for accessibility
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeNav();
   });
 
-  // Close the sidebar when a link inside it is clicked (in case of client-side routing)
   sidebar?.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", closeNav);
   });

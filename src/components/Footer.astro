@@ -6,27 +6,58 @@ const { phoneNumbers, facebookUrl, address, mapsUrl } = CONTACT_INFO;
 ---
 
 <footer
-  class="w-full bg-[#faf7f0] border-t border-stone-200 shadow-[0_-4px_12px_rgba(0,0,0,0.15)] mt-auto"
+  class="w-full bg-[#180202] border-t border-[#3d0d0d] shadow-[0_-8px_24px_rgba(0,0,0,0.5)] mt-auto relative overflow-hidden"
 >
-  <div class="max-w-6xl mx-auto px-4 md:px-8 py-10">
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center sm:text-left">
+  <!-- Top decorative amber accent rule line -->
+  <div class="h-0.5 w-full bg-linear-to-r from-transparent via-amber-500/50 to-transparent"></div>
+
+  <div class="max-w-6xl mx-auto px-4 md:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
       <!-- Address -->
       <div class="flex flex-col items-center">
-        <h3 class="text-xs font-semibold tracking-[0.2em] uppercase text-[#8c0e0e] mb-3">Адрес</h3>
+        <h3
+          class="text-xs font-bold tracking-[0.2em] uppercase text-amber-500 mb-4 flex items-center gap-2"
+        >
+          <svg
+            class="w-4 h-4 text-amber-500 shrink-0 fill-current"
+            viewBox="0 0 20 20"
+            aria-hidden="true"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+              clip-rule="evenodd"></path>
+          </svg>
+          Адрес & Локация
+        </h3>
         <a
           href={mapsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="text-center text-sm text-stone-700 hover:text-[#8c0e0e] transition-colors duration-200 leading-relaxed inline-block"
+          class="text-sm text-stone-300 hover:text-amber-400 transition-colors duration-200 leading-relaxed group"
         >
           {address}
+          <span class="block text-xs text-amber-500/70 group-hover:text-amber-400 mt-1"
+            >Вижте на картата &rarr;</span
+          >
         </a>
       </div>
 
       <!-- Phone numbers -->
       <div class="flex flex-col items-center">
-        <h3 class="text-xs font-semibold tracking-[0.2em] uppercase text-[#8c0e0e] mb-3">
-          Телефони
+        <h3
+          class="text-xs font-bold tracking-[0.2em] uppercase text-amber-500 mb-4 flex items-center gap-2"
+        >
+          <svg
+            class="w-4 h-4 text-amber-500 shrink-0 fill-current"
+            viewBox="0 0 20 20"
+            aria-hidden="true"
+          >
+            <path
+              d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"
+            ></path>
+          </svg>
+          Резервации & Телефон
         </h3>
         <ul class="space-y-1.5">
           {
@@ -34,7 +65,7 @@ const { phoneNumbers, facebookUrl, address, mapsUrl } = CONTACT_INFO;
               <li>
                 <a
                   href={`tel:${number.replace(/\s/g, "")}`}
-                  class="text-sm text-stone-700 hover:text-[#8c0e0e] transition-colors duration-200"
+                  class="text-sm font-mono text-stone-300 hover:text-amber-400 transition-colors duration-200"
                 >
                   {number}
                 </a>
@@ -44,34 +75,52 @@ const { phoneNumbers, facebookUrl, address, mapsUrl } = CONTACT_INFO;
         </ul>
       </div>
 
-      <!-- Social -->
+      <!-- Social & Hours -->
       <div class="flex flex-col items-center">
-        <h3 class="text-xs font-semibold tracking-[0.2em] uppercase text-[#8c0e0e] mb-3">
-          Последвайте ни
+        <h3
+          class="text-xs font-bold tracking-[0.2em] uppercase text-amber-500 mb-4 flex items-center gap-2"
+        >
+          <svg
+            class="w-4 h-4 text-amber-500 shrink-0 fill-current"
+            viewBox="0 0 20 20"
+            aria-hidden="true"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+              clip-rule="evenodd"></path>
+          </svg>
+          Работно Време
         </h3>
+        <p class="text-xs text-stone-400 mb-3">
+          Всеки ден: <span class="text-stone-200 font-semibold">11:30 – 22:30 ч.</span>
+        </p>
         <a
           href={facebookUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 text-sm text-stone-700 hover:text-[#8c0e0e] transition-colors duration-200"
+          class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-stone-300 hover:text-amber-400 transition-colors duration-200 bg-white/5 hover:bg-white/10 px-3 py-2 rounded-lg border border-white/10"
           aria-label="Facebook страница на Старата къща"
         >
-          <svg class="h-4 w-4 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+          <svg
+            class="h-4 w-4 fill-current text-[#1877f2] shrink-0"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
             <path
               d="M22 12.06C22 6.505 17.523 2 12 2S2 6.505 2 12.06c0 5.02 3.657 9.184 8.438 9.94v-7.03H7.898v-2.91h2.54V9.845c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562v1.878h2.773l-.443 2.91h-2.33V22c4.78-.756 8.437-4.92 8.437-9.94z"
             ></path>
           </svg>
-          Facebook
+          Facebook страница
         </a>
       </div>
     </div>
 
     <!-- Copyright -->
-    <div class="mt-8 pt-6 border-t border-stone-200 text-center">
-      <p class="text-xs md:text-sm text-[#5c0606] font-medium">
+    <div class="mt-10 pt-6 border-t border-[#2a0606] text-center">
+      <p class="text-xs text-stone-400 font-light">
         &copy; {currentYear}
-        <a href="https://staratakashta-bg.com" class="hover:underline"> Старата къща. </a>
-        Всички права запазени.
+        <a href="https://staratakashta-bg.com" class="text-amber-500 hover:underline font-medium"> Ресторант Старата къща</a>. Всички права запазени.
       </p>
     </div>
   </div>
