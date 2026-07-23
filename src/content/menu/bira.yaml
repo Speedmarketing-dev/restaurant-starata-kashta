@@ -1,18 +1,18 @@
-categoryTitle: "Бира"
+categoryTitle: Бира
 items:
-  - name: "Ариана светло"
-    weight: "500 мл."
-  - name: "Starobrno"
-    weight: "300 мл."
-  - name: "Starobrno"
-    weight: "500 мл."
-  - name: "Нишко пиво"
-    weight: "500 мл."
-  - name: "Heineken"
-    weight: "330 мл."
-  - name: "Heineken"
-    weight: "500 мл."
-  - name: "Столично-вайс / тъмно"
-    weight: "330 мл."
-  - name: "Heineken (безалкохолна)"
-    weight: "330 мл."
+  - name: Ариана светло
+    weight: 500 мл.
+  - name: Starobrno
+    weight: 300 мл.
+  - name: Starobrno
+    weight: 500 мл.
+  - name: Нишко пиво
+    weight: 500 мл.
+  - name: Heineken
+    weight: 330 мл.
+  - name: Heineken
+    weight: 500 мл.
+  - name: Столично-вайс / тъмно
+    weight: 330 мл.
+  - name: Heineken (безалкохолна)
+    weight: 330 мл.
