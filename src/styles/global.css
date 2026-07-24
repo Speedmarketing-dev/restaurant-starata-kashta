@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-serif: "Lora", serif;
-  --font-sans: "Fira Sans", sans-serif;
+  --font-serif: "Bitter", serif;
+  --font-sans: "Source Sans 3", sans-serif;
 
   /* Color Palette Tokens */
   --color-tavern-bg: #220303;
@@ -29,7 +29,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-serif), "Lora", Georgia, serif;
+  font-family: var(--font-serif), serif;
 }
 
 p {
@@ -37,7 +37,7 @@ p {
 }
 
 body {
-  font-family: var(--font-sans), "Fira Sans", system-ui, sans-serif;
+  font-family: var(--font-sans), sans-serif;
   background-color: var(--color-tavern-bg);
   color: #f3f4f6;
 }

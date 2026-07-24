@@ -148,7 +148,7 @@ const menuSchema = hasStructuredMenu
                 <div class="menu-item group flex justify-between gap-6 px-3 py-2 rounded-xl transition-colors duration-200 hover:bg-[#8c0e0e]/5">
                   <div class="flex-1 min-w-0">
                     <div class="flex flex-col gap-2 flex-wrap">
-                      <span class="font-serif max-w-[240px] sm:max-w-[560px] text-base sm:text-lg text-stone-900">
+                      <span class="font-serif font-semibold max-w-[240px] sm:max-w-[560px] text-base sm:text-lg text-stone-900">
                         {item.name}
                       </span>
                       {item.weight && (
@@ -167,7 +167,7 @@ const menuSchema = hasStructuredMenu
                   <!-- Prices Column -->
                   <div class="text-right shrink-0">
                     {item.priceEur !== undefined && item.priceEur !== null && (
-                      <span class="font-serif text-base sm:text-lg font-bold text-[#8c0e0e] whitespace-nowrap block">
+                      <span class="font-serif text-base sm:text-lg font-semibold text-[#8c0e0e] whitespace-nowrap block">
                         {fmt(item.priceEur)}&nbsp;€
                       </span>
                     )}
