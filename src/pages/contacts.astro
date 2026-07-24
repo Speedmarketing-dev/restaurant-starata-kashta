@@ -9,7 +9,7 @@ const { phoneNumbers, facebookUrl, address, mapsUrl, embedMapsUrl } = CONTACT_IN
   title="Контакти - Ресторант Старата къща"
   description="Резервирайте маса в ресторант Старата къща на тел. 0893 805 905. Намираме се в кв. Редута, ул. Марагидик 21, София."
 >
-  <main class="max-w-6xl w-full mx-auto px-4 md:px-8 py-6 grow">
+  <main class="max-w-6xl w-full mx-auto px-4 md:px-8 mb-8 grow">
     <section
       class="bg-parchment rounded-2xl shadow-2xl p-6 sm:p-10 md:p-12 mb-12 relative overflow-hidden"
     >
@@ -20,9 +20,9 @@ const { phoneNumbers, facebookUrl, address, mapsUrl, embedMapsUrl } = CONTACT_IN
       </div>
 
       <!-- Header Section -->
-      <header class="text-center max-w-2xl mx-auto mb-6 pb-6 border-b border-parchment-border">
+      <header class="text-center max-w-2xl mx-auto mb-8 pb-6 border-b border-parchment-border">
         <span
-          class="text-xs md:text-sm font-semibold tracking-[0.25em] uppercase text-burgundy-brand mb-2 block"
+          class="text-sm md:text-base font-semibold tracking-wider text-burgundy-brand mb-2 block"
         >
           Запитвания & Резервации
         </span>
@@ -38,12 +38,12 @@ const { phoneNumbers, facebookUrl, address, mapsUrl, embedMapsUrl } = CONTACT_IN
       </header>
 
       <!-- Main Section Container -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         <!-- Left Column: Contact Form -->
         <div
           class="lg:col-span-7 bg-white/40 p-6 rounded-2xl border border-parchment-border/50 shadow-xs"
         >
-          <form id="contact-form" class="space-y-5" novalidate>
+          <form id="contact-form" class="space-y-4" novalidate>
             <!-- Honeypot spam trap -->
             <input
               type="checkbox"
@@ -54,11 +54,8 @@ const { phoneNumbers, facebookUrl, address, mapsUrl, embedMapsUrl } = CONTACT_IN
               autocomplete="off"
             />
 
-            <div class="space-y-2">
-              <label
-                for="name"
-                class="block text-xs font-bold uppercase tracking-wider text-stone-700"
-              >
+            <div class="mb-4">
+              <label for="name" class="block text-xs font-bold uppercase text-stone-700 mb-2">
                 Вашето Име <span class="text-burgundy-brand font-serif">*</span>
               </label>
               <input
@@ -71,11 +68,8 @@ const { phoneNumbers, facebookUrl, address, mapsUrl, embedMapsUrl } = CONTACT_IN
               />
             </div>
 
-            <div class="space-y-2">
-              <label
-                for="email"
-                class="block text-xs font-bold uppercase tracking-wider text-stone-700"
-              >
+            <div class="mb-4">
+              <label for="email" class="block text-xs font-bold uppercase text-stone-700 mb-2">
                 Е-мейл адрес <span class="text-burgundy-brand font-serif">*</span>
               </label>
               <input
@@ -88,11 +82,8 @@ const { phoneNumbers, facebookUrl, address, mapsUrl, embedMapsUrl } = CONTACT_IN
               />
             </div>
 
-            <div class="space-y-2">
-              <label
-                for="topic"
-                class="block text-xs font-bold uppercase tracking-wider text-stone-700"
-              >
+            <div class="mb-4">
+              <label for="topic" class="block text-xs font-bold uppercase text-stone-700 mb-2">
                 Тема на съобщението <span class="text-burgundy-brand font-serif">*</span>
               </label>
               <input
@@ -105,11 +96,8 @@ const { phoneNumbers, facebookUrl, address, mapsUrl, embedMapsUrl } = CONTACT_IN
               />
             </div>
 
-            <div class="space-y-2">
-              <label
-                for="message"
-                class="block text-xs font-bold uppercase tracking-wider text-stone-700"
-              >
+            <div class="mb-4">
+              <label for="message" class="block text-xs font-bold uppercase text-stone-700 mb-2">
                 Съобщение <span class="text-burgundy-brand font-serif">*</span>
               </label>
               <textarea
@@ -125,10 +113,10 @@ const { phoneNumbers, facebookUrl, address, mapsUrl, embedMapsUrl } = CONTACT_IN
             <button
               type="submit"
               id="submit-btn"
-              class="w-full sm:w-auto btn-primary cursor-pointer"
+              class="w-full sm:w-auto btn-primary cursor-pointer text-center"
             >
               <svg
-                class="w-4 h-4 fill-current text-white shrink-0"
+                class="w-6 h-6 fill-current text-white shrink-0"
                 viewBox="0 0 20 20"
                 aria-hidden="true"
               >
@@ -136,11 +124,11 @@ const { phoneNumbers, facebookUrl, address, mapsUrl, embedMapsUrl } = CONTACT_IN
                   d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"
                 ></path>
               </svg>
-              <span id="submit-label">Изпрати съобщение</span>
+              <span id="submit-label" class="tracking-wider">Изпрати съобщение</span>
             </button>
 
             <!-- Status feedback -->
-            <p id="form-status" class="text-sm hidden mt-3" role="status" aria-live="polite"></p>
+            <p id="form-status" class="text-sm hidden" role="status" aria-live="polite"></p>
           </form>
         </div>
 
@@ -150,7 +138,7 @@ const { phoneNumbers, facebookUrl, address, mapsUrl, embedMapsUrl } = CONTACT_IN
             class="bg-parchment-dark/40 p-6 rounded-2xl border border-parchment-border/60 shadow-inner"
           >
             <!-- Address Section -->
-            <h2 class="font-bold uppercase text-burgundy-brand mb-3 flex items-center gap-2">
+            <h2 class="font-bold uppercase text-burgundy-brand mb-2 flex items-center gap-2">
               <svg
                 class="w-4 h-4 text-burgundy-brand fill-current shrink-0"
                 viewBox="0 0 20 20"
@@ -167,13 +155,13 @@ const { phoneNumbers, facebookUrl, address, mapsUrl, embedMapsUrl } = CONTACT_IN
               href={mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="text-sm text-stone-800 hover:text-burgundy-brand leading-relaxed block mb-6 hover:underline font-medium"
+              class="text-sm text-stone-800 hover:text-burgundy-brand leading-relaxed block mb-4 hover:underline"
             >
               {address}
             </a>
 
             <!-- Phones Section -->
-            <h2 class="font-bold uppercase text-burgundy-brand mb-3 flex items-center gap-2">
+            <h2 class="font-bold uppercase text-burgundy-brand mb-2 flex items-center gap-2">
               <svg
                 class="w-4 h-4 text-burgundy-brand fill-current shrink-0"
                 viewBox="0 0 20 20"
@@ -185,13 +173,13 @@ const { phoneNumbers, facebookUrl, address, mapsUrl, embedMapsUrl } = CONTACT_IN
               </svg>
               Телефони за резервация
             </h2>
-            <ul class="space-y-2 mb-6">
+            <ul class="space-y-2 mb-4">
               {
                 phoneNumbers.map((number) => (
                   <li>
                     <a
                       href={`tel:${number.replace(/\s/g, "")}`}
-                      class="text-sm font-mono font-bold text-stone-800 hover:text-burgundy-brand transition-colors flex items-center gap-2"
+                      class="text-sm font-mono text-stone-800 hover:text-burgundy-brand transition-colors flex items-center gap-2"
                     >
                       {number}
                     </a>
@@ -205,10 +193,10 @@ const { phoneNumbers, facebookUrl, address, mapsUrl, embedMapsUrl } = CONTACT_IN
               href={facebookUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="w-full inline-flex items-center justify-center gap-3 bg-burgundy-deep hover:bg-burgundy-brand border border-parchment-border text-xs font-bold tracking-widest uppercase p-3.5 rounded-lg text-white shadow-md transition-all duration-200"
+              class="w-full inline-flex items-center justify-center gap-2 bg-burgundy-deep hover:bg-burgundy-brand border border-parchment-border text-xs font-bold tracking-widest uppercase p-3.5 rounded-lg text-white shadow-md transition-all duration-200"
             >
               <svg
-                class="w-5 h-5 fill-current text-white shrink-0"
+                class="w-6 h-6 fill-current text-white shrink-0"
                 viewBox="0 0 24 24"
                 aria-hidden="true"
                 ><path

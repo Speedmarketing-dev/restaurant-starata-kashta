@@ -7,10 +7,10 @@ const { phoneNumbers } = CONTACT_INFO;
 ---
 
 <Layout title="Ресторант Старата къща - Начало | София, кв. Редута">
-  <main class="max-w-6xl w-full mx-auto px-4 md:px-8 py-4 grow">
+  <main class="max-w-6xl w-full mx-auto px-4 md:px-8 mb-8 grow">
     <!-- Primary Hero Content Card -->
     <section
-      class="bg-parchment rounded-2xl shadow-2xl p-12 border border-parchment-border mb-6 relative overflow-hidden"
+      class="bg-parchment rounded-2xl shadow-2xl p-12 border border-parchment-border mb-8 relative overflow-hidden"
       aria-labelledby="main-heading"
     >
       <!-- Top decorative crimson-to-gold accent line -->
@@ -19,42 +19,45 @@ const { phoneNumbers } = CONTACT_INFO;
       >
       </div>
 
+      <!-- Full-Width Header at the Top -->
+      <header class="mb-8 border-b border-parchment-border pb-6">
+        <div
+          class="text-sm md:text-base font-semibold tracking-wider text-burgundy-brand mb-2 flex items-center gap-2"
+        >
+          Ресторант - градина Старата къща
+        </div>
+        <h1
+          id="main-heading"
+          class="text-3xl sm:text-4xl md:text-5xl font-serif text-burgundy-deep leading-tight tracking-tight uppercase font-bold text-center"
+        >
+          Ретро музика, уют и<br />
+          <span class="text-burgundy-brand">българска кухня</span>
+        </h1>
+      </header>
+
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
         <!-- Left Side: Warm Welcome Text -->
         <article class="lg:col-span-6 flex flex-col justify-center">
-          <header class="mb-5">
-            <div
-              class="text-xs md:text-sm font-semibold tracking-[0.25em] uppercase text-burgundy-brand mb-2 flex items-center gap-2"
-            >
-              Ресторант - градина Старата къща
-            </div>
-            <h1
-              id="main-heading"
-              class="text-2xl sm:text-3xl lg:text-4xl font-serif text-burgundy-deep leading-tight tracking-tight uppercase font-bold border-b border-parchment-border pb-4"
-            >
-              Ретро музика, уют и<br />
-              <span class="text-burgundy-brand">българска кухня</span>
-            </h1>
-          </header>
-
-          <div class="space-y-4 text-stone-700 text-sm md:text-base leading-relaxed font-light">
+          <div class="mb-4 text-stone-700 text-sm md:text-base font-light">
             <p>
-              Ресторант - градина <strong class="font-semibold text-stone-900">Старата къща</strong> се
-              намира в София, квартал Редута. На пет минути от центъра на София и в същото време на тихо
-              и спокойно място далеч от градския шум.
+              Ресторант - градина <strong class="text-burgundy-brand">Старата къща</strong> се намира
+              в София, квартал Редута. На пет минути от центъра на София и в същото време на тихо и спокойно
+              място далеч от градския шум.
             </p>
             <p>
-              Тук можете да опитате както традиционни български салати и ястия, така и нашите
+              Тут можете да опитате както традиционни български салати и ястия, така и нашите
               авторски специалитети, приготвени с майсторство и внимание.
             </p>
             <p>
               Всичко това сред естествената зеленина и дарът от природата – нашата 30-годишна лоза,
               под чиято сянка ще прекарате незабравими моменти.
             </p>
+          </div>
 
+          <div class="flex flex-col items-center">
             <!-- Retro Music Highlight Callout -->
             <div
-              class="mt-2 p-4 rounded-xl bg-burgundy-brand/10 border-l-4 border-burgundy-brand flex items-start gap-3"
+              class="mt-2 p-4 rounded-xl bg-burgundy-brand/10 border-l-4 border-burgundy-brand flex items-start gap-2 max-w-100"
             >
               <svg
                 class="w-5 h-5 text-burgundy-brand shrink-0 mt-0.5 fill-current"
@@ -65,25 +68,27 @@ const { phoneNumbers } = CONTACT_INFO;
                   d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V4a1 1 0 001-1z"
                 ></path>
               </svg>
-              <p class="font-medium text-burgundy-deep text-xs sm:text-sm italic leading-snug">
-                „Тук можете да чуете вечните евъргрийни – както български класики, така и световни
-                рокендрол парчета.“
+              <p class="font-medium text-burgundy-deep italic leading-snug text-pretty">
+                Тук можете да чуете вечните евъргрийни - както български класики, така и световни
+                рокендрол парчета.
               </p>
             </div>
-          </div>
 
-          <!-- Hero Action CTAs -->
-          <div class="mt-6 pt-2 flex flex-wrap gap-3">
-            <a href={`${BASE_URL}menu`} class="btn-primary">
-              Разгледайте менюто
-              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20" aria-hidden="true">
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"></path>
-              </svg>
-            </a>
-            <a href={`${BASE_URL}contacts`} class="btn-gold"> Резервирайте маса </a>
+            <!-- Hero Action CTAs -->
+            <div class="mt-6 pt-2 flex flex-wrap gap-4">
+              <a href={`${BASE_URL}menu`} class="btn-primary tracking-wider">
+                Разгледайте менюто
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20" aria-hidden="true">
+                  <path
+                    fill-rule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </a>
+              <a href={`${BASE_URL}contacts`} class="btn-gold tracking-wider">
+                Резервирайте маса
+              </a>
+            </div>
           </div>
         </article>
 
@@ -96,7 +101,7 @@ const { phoneNumbers } = CONTACT_INFO;
 
     <!-- Lunch Menu Banner -->
     <section
-      class="bg-linear-to-r from-tavern-card via-tavern-border to-tavern-card border border-amber-500/30 text-white rounded-2xl shadow-xl p-6 mb-6 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden"
+      class="bg-linear-to-r from-tavern-card via-tavern-border to-tavern-card border border-amber-500/30 text-white rounded-2xl shadow-xl p-6 mb-8 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden"
       aria-label="Обедно меню"
     >
       <div class="flex items-center gap-4 sm:gap-6">
@@ -111,29 +116,30 @@ const { phoneNumbers } = CONTACT_INFO;
           </svg>
         </div>
         <div>
-          <span class="text-xs tracking-[0.25em] font-bold text-amber-400 block mb-2">
-            Всеки делничен ден
-          </span>
+          <span class="text-amber-400 block mb-2"> Всеки делничен ден </span>
           <h2
             class="text-xl sm:text-2xl font-serif font-bold text-white leading-tight tracking-[-0.015em]"
           >
             Разнообразно ежедневно обедно меню
           </h2>
-          <p class="text-stone-300 text-xs sm:text-sm mt-2 font-light max-w-xl">
+          <p class="text-stone-300 mt-2 font-light max-w-xl">
             Прясно приготвени супи, традиционни български готвени ястия, скара и десерти.
           </p>
         </div>
       </div>
 
       <!-- Action Link -->
-      <a href={`${BASE_URL}menu/obedno-menyu`} class="shrink-0 btn-gold w-full md:w-auto">
+      <a
+        href={`${BASE_URL}menu/obedno-menyu`}
+        class="shrink-0 btn-gold w-full md:w-auto tracking-wider"
+      >
         Вижте обедното меню &rarr;
       </a>
     </section>
 
     <!-- Lower Feature Cards Grid (Unified Architecture) -->
     <section
-      class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-12"
+      class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-8"
       aria-label="Раздели и оферти"
     >
       <!-- Box 1: Festive Offers -->
@@ -154,25 +160,25 @@ const { phoneNumbers } = CONTACT_INFO;
           </div>
           <!-- Card Content -->
           <div class="p-6">
-            <span class="text-xs font-bold text-amber-500 mb-2 flex items-center gap-2">
-              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20" aria-hidden="true">
+            <span class="text-amber-500 mb-2 flex items-center gap-2">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20" aria-hidden="true">
                 <path
                   d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z"
                 ></path>
               </svg>
               Тържества & Събития
             </span>
-            <h2 class="text-xl font-serif text-white font-bold mb-3 tracking-[-0.015em]">
+            <h2 class="text-2xl font-serif text-white font-bold mb-3 tracking-[-0.015em]">
               Празнични оферти
             </h2>
-            <p class="text-stone-300 text-sm font-light leading-relaxed">
+            <p class="text-stone-300 font-light">
               Приемаме заявки за вашите рождени дни, кръщенета, семейни тържества, юбилеи и фирмени
               празници.
             </p>
           </div>
         </div>
         <div class="p-6 pt-0">
-          <a href={`${BASE_URL}contacts`} class="w-full btn-outline-gold">
+          <a href={`${BASE_URL}contacts`} class="w-full btn-outline-gold tracking-wider">
             Запитване за тържество
           </a>
         </div>
@@ -196,8 +202,8 @@ const { phoneNumbers } = CONTACT_INFO;
           </div>
           <!-- Card Content -->
           <div class="p-6">
-            <span class="text-xs font-bold text-amber-500 mb-2 flex items-center gap-2">
-              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20" aria-hidden="true">
+            <span class="text-amber-500 mb-2 flex items-center gap-2">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20" aria-hidden="true">
                 <path
                   fill-rule="evenodd"
                   d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
@@ -205,17 +211,19 @@ const { phoneNumbers } = CONTACT_INFO;
               </svg>
               Традиция & Вкус
             </span>
-            <h2 class="text-xl font-serif text-white font-bold mb-3 tracking-[-0.015em]">
+            <h2 class="text-2xl font-serif text-white font-bold mb-3 tracking-[-0.015em]">
               За нас и менюто
             </h2>
-            <p class="text-stone-300 text-sm font-light leading-relaxed">
+            <p class="text-stone-300 font-light">
               Богато меню с класически български рецепти, автентичен майсторски грил, пресни салати
               и авторски ястия.
             </p>
           </div>
         </div>
         <div class="p-6 pt-0">
-          <a href={`${BASE_URL}menu`} class="w-full btn-gold"> Разгледайте менюто </a>
+          <a href={`${BASE_URL}menu`} class="w-full btn-gold tracking-wider">
+            Разгледайте менюто
+          </a>
         </div>
       </article>
 
@@ -237,18 +245,18 @@ const { phoneNumbers } = CONTACT_INFO;
           </div>
           <!-- Card Content -->
           <div class="p-6">
-            <span class="text-xs font-bold text-amber-500 mb-2 flex items-center gap-2">
-              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20" aria-hidden="true">
+            <span class="text-amber-500 mb-2 flex items-center gap-2">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20" aria-hidden="true">
                 <path
                   d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"
                 ></path>
               </svg>
               Бърза Резервация
             </span>
-            <h2 class="text-xl font-serif text-white font-bold mb-3 tracking-[-0.015em]">
+            <h2 class="text-2xl font-serif text-white font-bold mb-3 tracking-[-0.015em]">
               Направете резервация
             </h2>
-            <p class="text-stone-300 text-sm font-light leading-relaxed mb-4">
+            <p class="text-stone-300 font-light mb-4">
               Свържете се с нас за маса в градината или салона:
             </p>
             <!-- Direct Phone Links with SVG icons -->
@@ -260,13 +268,6 @@ const { phoneNumbers } = CONTACT_INFO;
                       href={`tel:${phoneNumber.replace(/\s/g, "")}`}
                       class="text-amber-400 hover:text-white transition-colors font-mono text-xs sm:text-sm flex items-center gap-2"
                     >
-                      <svg
-                        class="w-3.5 h-3.5 text-amber-500 fill-current shrink-0"
-                        viewBox="0 0 20 20"
-                        aria-hidden="true"
-                      >
-                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                      </svg>
                       {phoneNumber}
                     </a>
                   </li>
@@ -276,7 +277,9 @@ const { phoneNumbers } = CONTACT_INFO;
           </div>
         </div>
         <div class="p-6 pt-0">
-          <a href={`${BASE_URL}contacts`} class="w-full btn-outline-gold"> Всички контакти </a>
+          <a href={`${BASE_URL}contacts`} class="w-full btn-outline-gold tracking-wider">
+            Всички контакти
+          </a>
         </div>
       </article>
     </section>
