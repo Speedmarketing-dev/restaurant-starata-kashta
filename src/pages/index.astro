@@ -10,7 +10,7 @@ const { phoneNumbers } = CONTACT_INFO;
   <main class="max-w-6xl w-full mx-auto px-4 md:px-8 py-4 grow">
     <!-- Primary Hero Content Card -->
     <section
-      class="bg-parchment rounded-2xl shadow-2xl p-6 sm:p-8 md:p-12 border border-parchment-border mb-10 relative overflow-hidden"
+      class="bg-parchment rounded-2xl shadow-2xl p-12 border border-parchment-border mb-6 relative overflow-hidden"
       aria-labelledby="main-heading"
     >
       <!-- Top decorative crimson-to-gold accent line -->
@@ -30,7 +30,7 @@ const { phoneNumbers } = CONTACT_INFO;
             </div>
             <h1
               id="main-heading"
-              class="text-2xl sm:text-3xl lg:text-4xl font-serif text-burgundy-deep leading-tight tracking-wide uppercase font-bold border-b border-parchment-border pb-4"
+              class="text-2xl sm:text-3xl lg:text-4xl font-serif text-burgundy-deep leading-tight tracking-tight uppercase font-bold border-b border-parchment-border pb-4"
             >
               Ретро музика, уют и<br />
               <span class="text-burgundy-brand">българска кухня</span>
@@ -96,7 +96,7 @@ const { phoneNumbers } = CONTACT_INFO;
 
     <!-- Lunch Menu Banner -->
     <section
-      class="bg-linear-to-r from-tavern-card via-tavern-border to-tavern-card border border-amber-500/30 text-white rounded-2xl shadow-xl p-6 md:p-8 mb-10 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden"
+      class="bg-linear-to-r from-tavern-card via-tavern-border to-tavern-card border border-amber-500/30 text-white rounded-2xl shadow-xl p-6 mb-6 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden"
       aria-label="Обедно меню"
     >
       <div class="flex items-center gap-4 sm:gap-6">
@@ -111,15 +111,15 @@ const { phoneNumbers } = CONTACT_INFO;
           </svg>
         </div>
         <div>
-          <span
-            class="text-[10px] sm:text-xs tracking-[0.25em] uppercase font-bold text-amber-400 block mb-1"
-          >
+          <span class="text-xs tracking-[0.25em] font-bold text-amber-400 block mb-2">
             Всеки делничен ден
           </span>
-          <h2 class="text-xl sm:text-2xl font-serif font-bold text-white leading-tight">
+          <h2
+            class="text-xl sm:text-2xl font-serif font-bold text-white leading-tight tracking-[-0.015em]"
+          >
             Разнообразно ежедневно обедно меню
           </h2>
-          <p class="text-stone-300 text-xs sm:text-sm mt-1 font-light max-w-xl">
+          <p class="text-stone-300 text-xs sm:text-sm mt-2 font-light max-w-xl">
             Прясно приготвени супи, традиционни български готвени ястия, скара и десерти.
           </p>
         </div>
@@ -154,9 +154,7 @@ const { phoneNumbers } = CONTACT_INFO;
           </div>
           <!-- Card Content -->
           <div class="p-6">
-            <span
-              class="text-[11px] tracking-[0.2em] uppercase font-bold text-amber-500 mb-2 flex items-center gap-1.5"
-            >
+            <span class="text-xs font-bold text-amber-500 mb-2 flex items-center gap-2">
               <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20" aria-hidden="true">
                 <path
                   d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z"
@@ -164,7 +162,9 @@ const { phoneNumbers } = CONTACT_INFO;
               </svg>
               Тържества & Събития
             </span>
-            <h2 class="text-xl font-serif text-white font-bold mb-3">Празнични оферти</h2>
+            <h2 class="text-xl font-serif text-white font-bold mb-3 tracking-[-0.015em]">
+              Празнични оферти
+            </h2>
             <p class="text-stone-300 text-sm font-light leading-relaxed">
               Приемаме заявки за вашите рождени дни, кръщенета, семейни тържества, юбилеи и фирмени
               празници.
@@ -196,9 +196,7 @@ const { phoneNumbers } = CONTACT_INFO;
           </div>
           <!-- Card Content -->
           <div class="p-6">
-            <span
-              class="text-[11px] tracking-[0.2em] uppercase font-bold text-amber-500 mb-2 flex items-center gap-1.5"
-            >
+            <span class="text-xs font-bold text-amber-500 mb-2 flex items-center gap-2">
               <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20" aria-hidden="true">
                 <path
                   fill-rule="evenodd"
@@ -207,7 +205,9 @@ const { phoneNumbers } = CONTACT_INFO;
               </svg>
               Традиция & Вкус
             </span>
-            <h2 class="text-xl font-serif text-white font-bold mb-3">За нас и менюто</h2>
+            <h2 class="text-xl font-serif text-white font-bold mb-3 tracking-[-0.015em]">
+              За нас и менюто
+            </h2>
             <p class="text-stone-300 text-sm font-light leading-relaxed">
               Богато меню с класически български рецепти, автентичен майсторски грил, пресни салати
               и авторски ястия.
@@ -237,9 +237,7 @@ const { phoneNumbers } = CONTACT_INFO;
           </div>
           <!-- Card Content -->
           <div class="p-6">
-            <span
-              class="text-[11px] tracking-[0.2em] uppercase font-bold text-amber-500 mb-2 flex items-center gap-1.5"
-            >
+            <span class="text-xs font-bold text-amber-500 mb-2 flex items-center gap-2">
               <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20" aria-hidden="true">
                 <path
                   d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"
@@ -247,18 +245,20 @@ const { phoneNumbers } = CONTACT_INFO;
               </svg>
               Бърза Резервация
             </span>
-            <h2 class="text-xl font-serif text-white font-bold mb-3">Направете резервация</h2>
-            <p class="text-stone-300 text-sm font-light leading-relaxed mb-3">
+            <h2 class="text-xl font-serif text-white font-bold mb-3 tracking-[-0.015em]">
+              Направете резервация
+            </h2>
+            <p class="text-stone-300 text-sm font-light leading-relaxed mb-4">
               Свържете се с нас за маса в градината или салона:
             </p>
             <!-- Direct Phone Links with SVG icons -->
-            <ul class="space-y-1.5 mb-2">
+            <ul class="space-y-2 mb-2">
               {
                 phoneNumbers.map((phoneNumber) => (
                   <li>
                     <a
                       href={`tel:${phoneNumber.replace(/\s/g, "")}`}
-                      class="text-amber-400 hover:text-white transition-colors font-mono font-medium text-xs sm:text-sm flex items-center gap-2"
+                      class="text-amber-400 hover:text-white transition-colors font-mono text-xs sm:text-sm flex items-center gap-2"
                     >
                       <svg
                         class="w-3.5 h-3.5 text-amber-500 fill-current shrink-0"

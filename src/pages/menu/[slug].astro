@@ -118,13 +118,13 @@ const menuSchema = hasStructuredMenu
       <!-- Category Title Header -->
       <header class="text-center mb-8 pb-8 border-b border-[#e2d4b7]">
         <h1
-          class="text-3xl sm:text-4xl md:text-5xl font-serif text-[#4a0808] font-bold tracking-wide uppercase"
+          class="text-3xl sm:text-4xl md:text-5xl font-serif text-[#4a0808] font-bold tracking-tight uppercase"
         >
           {categoryTitle}
         </h1>
         {
           categoryDate && (
-            <p class="text-xs md:text-sm font-mono text-stone-600 mt-2 tracking-wide bg-amber-500/10 border border-amber-500/20 px-3 py-1 rounded-full inline-block">
+            <p class="text-xs md:text-sm text-stone-600 mt-2 bg-amber-500/10 border border-amber-500/20 px-3 py-1 rounded-full inline-block">
               Актуално към {categoryDate}
             </p>
           )
@@ -135,33 +135,33 @@ const menuSchema = hasStructuredMenu
       {items && items.length > 0 ? (
           <ul>
             {items.map((item) => (
-              <li class="py-3.5 first:pt-0 last:pb-0">
+              <li class="my-6 first:mt-0 last:mb-0 min-h-[68px]">
                 {item.subheading && (
                   <div class="pt-6 pb-4 flex items-center gap-4">
                     <span class="h-px bg-[#e2d4b7] grow" />
-                    <h2 class="text-xs text-center sm:text-sm font-bold tracking-[0.2em] uppercase text-[#8c0e0e] bg-[#8c0e0e]/10 px-4 py-1.5 rounded-full border border-[#8c0e0e]/20">
+                    <h2 class="text-center text-xl sm:text-2xl font-bold tracking-[-0.015em] text-[#8c0e0e] bg-[#8c0e0e]/10 px-4 py-2 rounded-2xl border border-[#8c0e0e]/20">
                       {item.subheading}
                     </h2>
                     <span class="h-px bg-[#e2d4b7] grow" />
                   </div>
                 )}
-                <div class="menu-item group flex items-baseline justify-between gap-4 px-3 py-2 rounded-xl transition-colors duration-200 hover:bg-[#8c0e0e]/5">
-                  <div class="flex-1 min-w-0 pr-2">
-                    <div class="flex items-baseline gap-2 flex-wrap">
-                      <span class="font-serif text-base sm:text-lg text-stone-900 font-bold leading-snug">
+                <div class="menu-item group flex justify-between gap-6 px-3 py-2 rounded-xl transition-colors duration-200 hover:bg-[#8c0e0e]/5">
+                  <div class="flex-1 min-w-0">
+                    <div class="flex flex-col gap-2 flex-wrap">
+                      <span class="font-serif max-w-[240px] sm:max-w-[560px] text-base sm:text-lg text-stone-900">
                         {item.name}
                       </span>
+                      {item.weight && (
+                      <span class="text-xs text-stone-600 block">
+                        {item.weight}
+                      </span>
+                    )}
                       {item.note && (
-                        <span class="text-[12px] font-semibold uppercase tracking-wider text-[#8c0e0e] bg-[#8c0e0e]/10 border border-[#8c0e0e]/20 rounded-md px-4 py-1.5">
+                        <span class="text-[14px] max-w-[240px] sm:max-w-[560px] text-[#8c0e0e] bg-[#8c0e0e]/10 border border-[#8c0e0e]/20 rounded-md px-4 py-2">
                           {item.note}
                         </span>
                       )}
                     </div>
-                    {item.weight && (
-                      <span class="text-xs text-stone-600 block mt-0.5">
-                        {item.weight}
-                      </span>
-                    )}
                   </div>
 
                   <!-- Prices Column -->
@@ -172,7 +172,7 @@ const menuSchema = hasStructuredMenu
                       </span>
                     )}
                     {item.priceBgn !== undefined && item.priceBgn !== null && (
-                      <span class="text-xs text-stone-600 whitespace-nowrap block">
+                      <span class="text-xs text-stone-600 whitespace-nowrap block mt-2">
                         {fmt(item.priceBgn)}&nbsp;лв.
                       </span>
                     )}

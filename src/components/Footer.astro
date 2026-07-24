@@ -11,13 +11,11 @@ const { phoneNumbers, facebookUrl, address, mapsUrl } = CONTACT_INFO;
   <!-- Top decorative amber accent rule line -->
   <div class="h-0.5 w-full bg-linear-to-r from-transparent via-amber-500/50 to-transparent"></div>
 
-  <div class="max-w-6xl mx-auto px-4 md:px-8 py-12">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+  <div class="max-w-6xl mx-auto px-4 py-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
       <!-- Address -->
       <div class="flex flex-col items-center">
-        <h3
-          class="text-xs font-bold tracking-[0.2em] uppercase text-amber-500 mb-4 flex items-center gap-2"
-        >
+        <h3 class="text-amber-500 mb-4 flex items-center gap-2">
           <svg
             class="w-4 h-4 text-amber-500 shrink-0 fill-current"
             viewBox="0 0 20 20"
@@ -37,7 +35,7 @@ const { phoneNumbers, facebookUrl, address, mapsUrl } = CONTACT_INFO;
           class="text-sm text-stone-300 hover:text-amber-400 transition-colors duration-200 leading-relaxed group"
         >
           {address}
-          <span class="block text-xs text-amber-500/70 group-hover:text-amber-400 mt-1"
+          <span class="block text-xs text-amber-500/70 group-hover:text-amber-400 mt-2"
             >Вижте на картата &rarr;</span
           >
         </a>
@@ -45,9 +43,7 @@ const { phoneNumbers, facebookUrl, address, mapsUrl } = CONTACT_INFO;
 
       <!-- Phone numbers -->
       <div class="flex flex-col items-center">
-        <h3
-          class="text-xs font-bold tracking-[0.2em] uppercase text-amber-500 mb-4 flex items-center gap-2"
-        >
+        <h3 class="text-amber-500 mb-4 flex items-center gap-2">
           <svg
             class="w-4 h-4 text-amber-500 shrink-0 fill-current"
             viewBox="0 0 20 20"
@@ -59,7 +55,7 @@ const { phoneNumbers, facebookUrl, address, mapsUrl } = CONTACT_INFO;
           </svg>
           Резервации & Телефон
         </h3>
-        <ul class="space-y-1.5">
+        <ul class="space-y-2">
           {
             phoneNumbers.map((number) => (
               <li>
@@ -77,9 +73,7 @@ const { phoneNumbers, facebookUrl, address, mapsUrl } = CONTACT_INFO;
 
       <!-- Social & Hours -->
       <div class="flex flex-col items-center">
-        <h3
-          class="text-xs font-bold tracking-[0.2em] uppercase text-amber-500 mb-4 flex items-center gap-2"
-        >
+        <h3 class="text-amber-500 mb-4 flex items-center gap-2">
           <svg
             class="w-4 h-4 text-amber-500 shrink-0 fill-current"
             viewBox="0 0 20 20"
@@ -92,7 +86,7 @@ const { phoneNumbers, facebookUrl, address, mapsUrl } = CONTACT_INFO;
           </svg>
           Работно Време
         </h3>
-        <p class="text-xs text-stone-400 mb-3">
+        <p class="text-sm text-stone-400 mb-2">
           Всеки ден: <span class="text-stone-200 font-semibold">11:30 – 22:30 ч.</span>
         </p>
         <a
@@ -117,7 +111,7 @@ const { phoneNumbers, facebookUrl, address, mapsUrl } = CONTACT_INFO;
     </div>
 
     <!-- Copyright -->
-    <div class="mt-10 pt-6 border-t border-[#2a0606] text-center">
+    <div class="mt-6 pt-6 border-t border-[#2a0606] text-center">
       <p class="text-xs text-stone-400 font-light">
         &copy; {currentYear}
         <a href="https://staratakashta-bg.com" class="text-amber-500 hover:underline font-medium"> Ресторант Старата къща</a>. Всички права запазени.

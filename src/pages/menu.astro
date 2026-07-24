@@ -177,14 +177,14 @@ const menuCategories = [
       </div>
 
       <!-- Section Header -->
-      <header class="text-center max-w-2xl mx-auto mb-10 pb-8 border-b border-parchment-border">
+      <header class="text-center max-w-2xl mx-auto mb-6 pb-6 border-b border-parchment-border">
         <span
           class="text-xs md:text-sm font-semibold tracking-[0.25em] uppercase text-burgundy-brand mb-2 block"
         >
           Традиционна Българска Кухня
         </span>
         <h1
-          class="text-3xl sm:text-4xl md:text-5xl font-serif text-burgundy-deep font-bold tracking-wide uppercase mb-4"
+          class="text-3xl sm:text-4xl md:text-5xl font-serif text-burgundy-deep font-bold tracking-tight uppercase mb-4"
         >
           Нашето Меню
         </h1>
@@ -246,7 +246,7 @@ const menuCategories = [
       <!-- Responsive Menu Categories Grid -->
       <div
         id="categories-grid"
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
       >
         {
           menuCategories.map((category) => {
@@ -280,7 +280,7 @@ const menuCategories = [
 
                   <!-- Bottom Title & Subtitle Container -->
                   <div class="absolute inset-x-0 bottom-0 p-4">
-                    <h2 class="text-white font-serif font-bold text-lg md:text-xl tracking-wide drop-shadow-md group-hover:text-amber-400 transition-colors">
+                    <h2 class="text-white font-serif font-bold text-lg md:text-xl drop-shadow-md group-hover:text-amber-400 transition-colors">
                       {category.title}
                     </h2>
                     <p class="text-stone-300 text-xs font-light line-clamp-1 mt-1 opacity-90">
@@ -300,7 +300,7 @@ const menuCategories = [
       <!-- Search No Results State -->
       <div
         id="no-results"
-        class="hidden flex-col items-center justify-center py-16 text-center text-stone-700"
+        class="hidden flex-col items-center justify-center py-6 text-center text-stone-700"
       >
         <div
           class="w-16 h-16 rounded-full bg-burgundy-brand/10 border border-burgundy-brand/20 flex items-center justify-center text-burgundy-brand mb-4"
@@ -314,7 +314,7 @@ const menuCategories = [
         <p class="font-serif font-bold text-lg text-burgundy-deep">
           Няма открити категории по този критерий
         </p>
-        <p class="text-sm text-stone-500 mt-1 max-w-sm">
+        <p class="text-sm text-stone-600 mt-2 max-w-sm">
           Опитайте отново с друга дума или използвайте филтрите за бърз преглед.
         </p>
       </div>

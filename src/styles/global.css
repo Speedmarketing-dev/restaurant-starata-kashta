@@ -75,11 +75,7 @@ body {
   background-color: #8c0e0e;
   color: #ffffff;
   font-weight: 700;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 0.875rem 1.75rem;
+  padding: 1rem 1.5rem;
   border-radius: 9999px;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 4px 14px rgba(140, 14, 14, 0.4);
@@ -100,11 +96,7 @@ body {
   background-color: #f59e0b;
   color: #1a0303;
   font-weight: 700;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 0.875rem 1.75rem;
+  padding: 1rem 1.5rem;
   border-radius: 9999px;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
@@ -125,11 +117,7 @@ body {
   border: 1px solid #d97706;
   color: #f59e0b;
   font-weight: 600;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 0.875rem 1.75rem;
+  padding: 1rem 1.5rem;
   border-radius: 9999px;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;

@@ -14,15 +14,15 @@ const normalize = (path: string) => path.replace(/\/$/, "");
 ---
 
 <header
-  class="sticky top-0 z-40 w-full px-4 sm:px-8 py-3.5 bg-[#1c0202]/90 backdrop-blur-md border-b border-[#3d0d0d] shadow-lg mb-6"
+  class="sticky top-0 z-40 w-full px-4 sm:px-6 py-4 bg-[#1c0202]/90 backdrop-blur-md border-b border-[#3d0d0d] shadow-lg mb-6"
 >
   <div class="max-w-6xl mx-auto flex justify-between items-center gap-4">
     <!-- Logo -->
-    <a href={`${BASE_URL}`} class="flex items-center gap-3 group shrink-0">
+    <a href={`${BASE_URL}`} class="flex items-center gap-3 group shrink-0 w-45">
       <img
         src={`${BASE_URL}images/logo.svg`}
         alt="Лого на ресторант Старата къща в гр. София, кв. Редута"
-        class="h-10 sm:h-12 w-auto transition-transform duration-300 group-hover:scale-105"
+        class="transition-transform duration-300 group-hover:scale-105"
       />
     </a>
 
@@ -42,7 +42,7 @@ const normalize = (path: string) => path.replace(/\/$/, "");
       </button>
 
       <!-- Desktop Nav Links -->
-      <ul class="hidden md:flex flex-row items-center gap-1 lg:gap-2">
+      <ul class="hidden md:flex flex-row items-center gap-2">
         {
           navItems.map((item) => {
             const isActive = normalize(currentPath) === normalize(item.href);
@@ -83,13 +83,9 @@ const normalize = (path: string) => path.replace(/\/$/, "");
 >
   <div>
     <!-- Top Header inside Drawer -->
-    <div class="flex items-center justify-between pb-6 border-b border-[#3d0d0d] mb-6">
-      <a href={`${BASE_URL}`} class="w-36">
-        <img
-          src={`${BASE_URL}images/logo.svg`}
-          alt="Лого на ресторант Старата къща"
-          class="h-9 w-auto"
-        />
+    <div class="flex items-center justify-between pb-4 border-b border-[#3d0d0d] mb-6">
+      <a href={`${BASE_URL}`} class="w-45">
+        <img src={`${BASE_URL}images/logo.svg`} alt="Лого на ресторант Старата къща" />
       </a>
       <button
         id="mobile-nav-close"
@@ -113,7 +109,7 @@ const normalize = (path: string) => path.replace(/\/$/, "");
             <li>
               <a
                 href={item.href}
-                class={`text-sm font-semibold tracking-widest uppercase transition-colors duration-200 py-3 px-4 rounded-xl block ${
+                class={`transition-colors duration-200 p-4 rounded-2xl block ${
                   isActive
                     ? "text-amber-400 font-bold bg-amber-500/15 border border-amber-500/30"
                     : "text-stone-200 hover:text-amber-400 hover:bg-white/5"
@@ -129,10 +125,10 @@ const normalize = (path: string) => path.replace(/\/$/, "");
   </div>
 
   <!-- Bottom Drawer Quick Info -->
-  <div class="pt-6 border-t border-[#3d0d0d] space-y-3">
-    <div class="flex items-center gap-2 text-stone-400 text-xs">
+  <div class="pt-6 border-t border-[#3d0d0d] space-y-2">
+    <div class="flex items-center gap-2 text-stone-400 text-[14px]">
       <svg
-        class="w-4 h-4 text-amber-500 shrink-0 fill-current"
+        class="w-3.5 h-3.5 text-amber-500 shrink-0 fill-current"
         viewBox="0 0 20 20"
         aria-hidden="true"
       >
@@ -145,10 +141,10 @@ const normalize = (path: string) => path.replace(/\/$/, "");
     </div>
     <a
       href="tel:+359893805905"
-      class="flex items-center gap-2 text-amber-400 font-mono font-medium text-xs hover:underline"
+      class="flex items-center gap-2 text-amber-400 font-mono hover:underline text-[14px]"
     >
       <svg
-        class="w-4 h-4 text-amber-500 shrink-0 fill-current"
+        class="w-3.5 h-3.5 text-amber-500 shrink-0 fill-current"
         viewBox="0 0 20 20"
         aria-hidden="true"
       >
